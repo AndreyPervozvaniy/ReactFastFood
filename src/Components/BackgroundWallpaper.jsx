@@ -8,6 +8,7 @@ const BackgroundWallpaper = () => {
       pos="absolute"
       w={"100%"}
       h={"100%"}
+      zIndex={-1}
       _before={{
         content: '""',
         bgImage: backgroundImage,

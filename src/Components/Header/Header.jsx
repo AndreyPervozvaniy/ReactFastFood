@@ -1,21 +1,21 @@
 import React from "react";
-import { Flex, Icon, Image, Text, Box } from "@chakra-ui/react";
+import { Flex, Icon, Image, Text } from "@chakra-ui/react";
 import Logo from "../../Assets/Image/Logo1.png";
 import { IoMdTime, IoMdCall } from "react-icons/io";
 import { CiShoppingCart } from "react-icons/ci";
 const Header = () => {
   return (
-    <Flex pos={"fixed"} w={"100%"} h="120px" background={"white"}>
+    <Flex pos={"absolute"} w={"100%"} h="120px" background={"white"}>
       <Flex flexDir={"column"} justifyContent={"center"} w={"30%"} ml={5}>
         <Flex alignItems={"center"}>
-          <Icon as={IoMdTime} h={8} w={8} color={"black"} mx={2} />
+          <Icon as={IoMdTime} h={8} w={8} color={"black"} mx={10} />
           <Text color="black" fontWeight={"bold"}>
             {" "}
             Мы работаем с 10-00 до 21-00
           </Text>
         </Flex>
         <Flex w={"100%"} alignItems={"center"} justify={"start"}>
-          <Icon as={IoMdCall} h={8} w={8} color={"black"} mx={2} />
+          <Icon as={IoMdCall} h={8} w={8} color={"black"} mx={10} />
           <Text
             color={"#ccc"}
             cursor={"pointer"}
@@ -29,7 +29,7 @@ const Header = () => {
       <Flex alignItems={"center"} justify={"center"} w={"40%"}>
         <Image src={Logo} w={"300px"} cursor={"pointer"} />
       </Flex>
-      <Flex w={"30%"} alignItems={"center"} justify={"end"} mr={5}>
+      <Flex w={"30%"} alignItems={"center"} justify={"end"} mr={10}>
         <Flex
           borderRadius={"8px"}
           border={"1px solid black"}
