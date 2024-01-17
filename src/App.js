@@ -7,6 +7,7 @@ import Partners from "./Components/Partners";
 import Review from "./Components/Review";
 import Banner from "./Components/Banner";
 import Benefit from "./Components/Benefit";
+import AccordionTemplate from "./Components/AccordionTemplate";
 function App() {
   return (
     <Flex flexDir={"column"}>
@@ -20,6 +21,7 @@ function App() {
       <Review />
       <Banner />
       <Benefit />
+      <AccordionTemplate />
       <Flex h={"200vh"}></Flex>
     </Flex>
   );
