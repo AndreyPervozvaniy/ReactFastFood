@@ -10,6 +10,7 @@ import Benefit from "./Components/MainPageContent/Benefit";
 import AccordionTemplate from "./Components/MainPageContent/AccordionTemplate";
 import About from "./Components/MainPageContent/About";
 import Menu from "./Components/MainPageContent/Menu";
+import Footer from "./Components/Footer/Footer";
 function App() {
   return (
     <Flex flexDir={"column"}>
@@ -26,7 +27,7 @@ function App() {
       <AccordionTemplate />
       <About />
       <Menu />
-      <Flex h={"200vh"}></Flex>
+      <Footer />
     </Flex>
   );
 }

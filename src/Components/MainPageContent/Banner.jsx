@@ -15,7 +15,7 @@ const Banner = () => {
           fontSize={"xl"}
           px={4}
         >
-          Доставка в каждый город
+          Доставка в каждом городе
         </Text>
         <Image src={Logo} w={"400px"} border={"2px solid black"} />{" "}
         <Flex

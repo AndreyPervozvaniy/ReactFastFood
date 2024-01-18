@@ -22,7 +22,7 @@ const CarouselTemplate = () => {
             <Image
               key={slide.id}
               src={slide.image}
-              height="600px"
+              height="500px"
               width="100%"
             />
           );
