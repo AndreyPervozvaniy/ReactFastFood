@@ -1,7 +1,7 @@
 import React from "react";
 import { Box } from "@chakra-ui/react";
 
-import backgroundImage from "../Assets/Image/background.jpg";
+import backgroundImage from "../../Assets/Image/background.jpg";
 const BackgroundWallpaper = () => {
   return (
     <Box

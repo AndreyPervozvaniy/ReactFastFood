@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "../Assets/Image/Logo1.png";
+import Logo from "../../Assets/Image/Logo1.png";
 import { Flex, Image, Text } from "@chakra-ui/react";
 const Banner = () => {
   return (

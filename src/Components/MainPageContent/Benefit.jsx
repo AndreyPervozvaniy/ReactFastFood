@@ -2,7 +2,7 @@ import { Box, Container, Flex, Icon, Text } from "@chakra-ui/react";
 import React from "react";
 import { GiCook, GiSushis, GiFruitBowl } from "react-icons/gi";
 import { TbTruckDelivery } from "react-icons/tb";
-import { BenefitData } from "../Utills/Utills";
+import { BenefitData } from "../../Utills/Utills";
 const Benefit = () => {
   return (
     <Flex

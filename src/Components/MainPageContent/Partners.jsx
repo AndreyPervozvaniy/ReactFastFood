@@ -1,8 +1,8 @@
 import React from "react";
 import { Flex, Text, Image } from "@chakra-ui/react";
-import cola from "../Assets/Image/colalogo.png";
-import vilenas from "../Assets/Image/vilenas.png";
-import watatsumi from "../Assets/Image/watatsumi.png";
+import cola from "../../Assets/Image/colalogo.png";
+import vilenas from "../../Assets/Image/vilenas.png";
+import watatsumi from "../../Assets/Image/watatsumi.png";
 
 const Partners = () => {
   return (

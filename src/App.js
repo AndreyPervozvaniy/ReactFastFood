@@ -1,13 +1,15 @@
 import React from "react";
 import { Flex, Text } from "@chakra-ui/react";
-import BackgroundWallpaper from "./Components/BackgroundWallpaper";
+import BackgroundWallpaper from "./Components/MainPageContent/BackgroundWallpaper";
 import Header from "./Components/Header/Header";
 import CarouselTemplate from "./Components/Carousel/Carousel";
-import Partners from "./Components/Partners";
-import Review from "./Components/Review";
-import Banner from "./Components/Banner";
-import Benefit from "./Components/Benefit";
-import AccordionTemplate from "./Components/AccordionTemplate";
+import Partners from "./Components/MainPageContent/Partners";
+import Review from "./Components/MainPageContent/Review";
+import Banner from "./Components/MainPageContent/Banner";
+import Benefit from "./Components/MainPageContent/Benefit";
+import AccordionTemplate from "./Components/MainPageContent/AccordionTemplate";
+import About from "./Components/MainPageContent/About";
+import Menu from "./Components/MainPageContent/Menu";
 function App() {
   return (
     <Flex flexDir={"column"}>
@@ -22,6 +24,8 @@ function App() {
       <Banner />
       <Benefit />
       <AccordionTemplate />
+      <About />
+      <Menu />
       <Flex h={"200vh"}></Flex>
     </Flex>
   );
