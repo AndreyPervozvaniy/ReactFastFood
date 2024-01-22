@@ -1,4 +1,6 @@
-import { Flex, Icon, Text } from "@chakra-ui/react";
+import { Text } from "@chakra-ui/react";
+import { BiSushi } from "react-icons/bi";
+import { FaBurger, FaPizzaSlice } from "react-icons/fa6";
 import { GiCook, GiSushis, GiFruitBowl } from "react-icons/gi";
 import { TbTruckDelivery } from "react-icons/tb";
 import aboutImage1 from "../Assets/Image/aboutImage1.jpg";
@@ -6,6 +8,9 @@ import aboutImage2 from "../Assets/Image/aboutimage2.jpg";
 import bg from "../Assets/Image/bg.jpg";
 import bg2 from "../Assets/Image/bg2.jpg";
 import bg3 from "../Assets/Image/bg3.jpg";
+import cola from "../Assets/Image/colalogo.png";
+import vilenas from "../Assets/Image/vilenas.png";
+import watatsumi from "../Assets/Image/watatsumi.png";
 export const ReviewData = [
   {
     name: "Владислава ",
@@ -92,7 +97,17 @@ export const ReviewData = [
     comments: "Очень вкусный сет!",
   },
 ];
-
+export const PartnersData = [
+  {
+    image: cola,
+  },
+  {
+    image: vilenas,
+  },
+  {
+    image: watatsumi,
+  },
+];
 export const BenefitData = [
   {
     icon: TbTruckDelivery,
@@ -188,5 +203,47 @@ export const MenuData = [
     title: "Американские блюда",
     image: bg3,
     text: "Кто откажется от свежего и сочного бургера? Эта американская еда завоевала все континенты и страны. Вкусная котлетка с соусами и хрустящей булкой так и манит своим ароматом. Плох или хорош фаст-фуд? Об этом можно спорить долго. Но люди часто выбирают американские бургеры, потому что это — удобно, вкусно и быстро.",
+  },
+];
+export const NavBarData = [
+  {
+    text: "Cуши",
+    icon: BiSushi,
+    router: "/sushi",
+  },
+  {
+    text: "Роллы",
+    icon: BiSushi,
+    router: "/rolls",
+  },
+  {
+    text: "Сеты",
+    icon: BiSushi,
+    router: "/sets",
+  },
+  {
+    text: "Шаурма",
+    icon: BiSushi,
+    router: "/kebab",
+  },
+  {
+    text: "Лапша",
+    icon: BiSushi,
+    router: "/noodles",
+  },
+  {
+    text: "Супы",
+    icon: BiSushi,
+    router: "/soups",
+  },
+  {
+    text: "Бургер",
+    icon: FaBurger,
+    router: "/burger",
+  },
+  {
+    text: "Пицца",
+    icon: FaPizzaSlice,
+    router: "/pizza",
   },
 ];

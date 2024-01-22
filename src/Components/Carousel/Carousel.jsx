@@ -7,7 +7,7 @@ import { CarouselData } from "../../Utills/CarouselContent";
 
 const CarouselTemplate = () => {
   return (
-    <Flex w="100%" mt={120} color="white">
+    <Flex w="100%" mt={200} color="white">
       <Carousel
         infiniteLoop
         showArrows={false}
@@ -22,7 +22,7 @@ const CarouselTemplate = () => {
             <Image
               key={slide.id}
               src={slide.image}
-              height="500px"
+              height="600px"
               width="100%"
             />
           );

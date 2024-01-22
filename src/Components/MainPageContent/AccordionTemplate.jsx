@@ -20,7 +20,7 @@ const AccordionTemplate = () => {
       <Text fontSize={"3xl"} fontWeight={"bold"} mb={10}>
         Ответы на вопросы
       </Text>
-      <Accordion defaultIndex={[0]} allowMultiple w={"95%"}>
+      <Accordion w={"95%"}>
         <AccordionItem borderRadius={"5px"} backgroundColor={"white"}>
           <h2>
             <AccordionButton
