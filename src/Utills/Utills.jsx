@@ -1,6 +1,12 @@
 import { Text } from "@chakra-ui/react";
 import { BiSushi } from "react-icons/bi";
 import { FaBurger, FaPizzaSlice } from "react-icons/fa6";
+import { GiFullPizza, GiNoodles } from "react-icons/gi";
+import { GiDonerKebab } from "react-icons/gi";
+import { LuSoup } from "react-icons/lu";
+import { GiFastNoodles } from "react-icons/gi";
+import { FaBoxesStacked } from "react-icons/fa6";
+
 import { GiCook, GiSushis, GiFruitBowl } from "react-icons/gi";
 import { TbTruckDelivery } from "react-icons/tb";
 import aboutImage1 from "../Assets/Image/aboutImage1.jpg";
@@ -208,7 +214,7 @@ export const MenuData = [
 export const NavBarData = [
   {
     text: "Cуши",
-    icon: BiSushi,
+    icon: GiSushis,
     router: "/sushi",
   },
   {
@@ -218,22 +224,22 @@ export const NavBarData = [
   },
   {
     text: "Сеты",
-    icon: BiSushi,
+    icon: FaBoxesStacked,
     router: "/sets",
   },
   {
     text: "Шаурма",
-    icon: BiSushi,
+    icon: GiDonerKebab,
     router: "/kebab",
   },
   {
     text: "Лапша",
-    icon: BiSushi,
+    icon: GiNoodles,
     router: "/noodles",
   },
   {
     text: "Супы",
-    icon: BiSushi,
+    icon: LuSoup,
     router: "/soups",
   },
   {

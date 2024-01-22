@@ -87,7 +87,7 @@ const Header = () => {
               borderBottom={
                 currentLocation.pathname === item.router
                   ? "2px solid green"
-                  : "none"
+                  : "2px solid transparent"
               }
               justify={"center"}
               alignItems={"center"}

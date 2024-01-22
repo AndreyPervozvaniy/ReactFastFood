@@ -30,7 +30,7 @@ const MainPage = () => {
       <BackgroundWallpaper />
       <Header />
       <Flex flexDir={"column"}>
-        {/* <CarouselTemplate /> */}
+        <CarouselTemplate />
         <Flex textAlign={"center"} justify={"center"} p={"5"}>
           <Text fontWeight={"bold"} fontSize={"4xl"}>
             {" "}

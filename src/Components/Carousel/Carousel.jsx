@@ -24,6 +24,7 @@ const CarouselTemplate = () => {
               src={slide.image}
               height="600px"
               width="100%"
+              loading="eager"
             />
           );
         })}
