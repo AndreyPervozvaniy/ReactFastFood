@@ -7,7 +7,7 @@ const ProductStack = (props) => {
   useEffect(() => {
     function getData() {
       axios
-        .get(`https://65a93323219bfa371868c106.mockapi.io/${props.endpoint}`)
+        .get("https://65a93323219bfa371868c106.mockapi.io/Sushi")
         .then((res) => setDataBack(res.data));
     }
     getData();

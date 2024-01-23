@@ -11,11 +11,7 @@ const Sushi = () => {
       <BackgroundWallpaper />
       <Header />
 
-      <ProductStack
-        endpoint="Sushi"
-        title="ВКУСНЕЙШИЕ СУШИ В ДНЕПРЕ"
-        type="sushi"
-      />
+      <ProductStack title="ВКУСНЕЙШИЕ СУШИ В ДНЕПРЕ" type="sushi" />
       <ReviewComponent page="Rolls" />
 
       <Footer />

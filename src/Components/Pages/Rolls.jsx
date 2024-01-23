@@ -11,11 +11,7 @@ const Rolls = () => {
       <BackgroundWallpaper />
       <Header />
 
-      <ProductStack
-        endpoint="Sushi"
-        title="ВКУСНЕЙШИЕ РОЛЛЫ В ДНЕПРЕ"
-        type="rolls"
-      />
+      <ProductStack title="ВКУСНЕЙШИЕ РОЛЛЫ В ДНЕПРЕ" type="rolls" />
       <ReviewComponent page="Rolls" />
 
       <Footer />
