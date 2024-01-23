@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Flex, Icon, Image, Text } from "@chakra-ui/react";
 import Logo from "../../Assets/Image/Logo1.png";
 import { IoMdTime, IoMdCall } from "react-icons/io";
@@ -99,11 +99,12 @@ const Header = () => {
               h={"100%"}
               overflow={"hidden"}
               w={"100%"}
+              cursor={"pointer"}
               flexDir={"column"}
             >
               {" "}
               <Icon as={item.icon} h={12} w={12} />
-              <Text>{item.text}</Text>
+              <Text fontWeight={"bold"}>{item.text}</Text>
             </Flex>
           ))}
         </Flex>

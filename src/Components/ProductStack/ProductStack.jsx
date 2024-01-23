@@ -1,7 +1,7 @@
-import { Container, Icon, Flex, Image, Text, Box } from "@chakra-ui/react";
+import { Container, Icon, Flex, Image, Text } from "@chakra-ui/react";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { FaRegSmileBeam, FaStar } from "react-icons/fa";
+import { FaStar } from "react-icons/fa";
 const ProductStack = (props) => {
   const [dataBack, setDataBack] = useState([]);
   useEffect(() => {
@@ -11,7 +11,8 @@ const ProductStack = (props) => {
         .then((res) => setDataBack(res.data));
     }
     getData();
-  }, []);
+  }, [props.endpoint]);
+
   const [isHovered, setIsHovered] = useState(null);
   return (
     <Flex mt={"200px"} flexDir={"column"}>
@@ -23,7 +24,7 @@ const ProductStack = (props) => {
         <Container maxW={"7xl"} mt={12}>
           <Flex justify={"center"} flexWrap="wrap" gridGap={2}>
             {dataBack
-              .filter((item) => item.type === "sushi")
+              .filter((item) => item.type === props.type)
               .map((item, index) => (
                 <Flex
                   key={item.id}
@@ -37,9 +38,20 @@ const ProductStack = (props) => {
                   onMouseLeave={() => setIsHovered(null)}
                   cursor={"pointer"}
                 >
-                  <Text fontWeight={"bold"} fontSize={"2xl"} pos={"absolute"}>
+                  <Text fontWeight={"bold"} fontSize={"3xl"}>
                     {item.name}
                   </Text>
+                  <Flex>
+                    {[...Array(5)].map((_, index) => (
+                      <Icon
+                        key={index}
+                        as={FaStar}
+                        color={index < item.starCount ? "#c78500" : "gray"} // Используйте серый цвет для незакрашенных звезд
+                        h={6}
+                        w={6}
+                      />
+                    ))}
+                  </Flex>
 
                   {isHovered === item.id ? (
                     <Flex
@@ -48,7 +60,12 @@ const ProductStack = (props) => {
                       alignItems={"center"}
                     >
                       <Image opacity={"20%"} src={item.imageURL} />
-                      <Text pos={"absolute"} fontWeight={"bold"}>
+                      <Text
+                        pos={"absolute"}
+                        fontWeight={"bold"}
+                        flexWrap={"wrap"}
+                        w={"500px"}
+                      >
                         {item.consist}
                       </Text>
                     </Flex>

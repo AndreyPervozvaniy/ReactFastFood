@@ -1,4 +1,4 @@
-import { Flex, Box } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 import React from "react";
 import { Image } from "@chakra-ui/react";
 import { Carousel } from "react-responsive-carousel";
