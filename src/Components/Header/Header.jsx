@@ -51,8 +51,10 @@ const Header = () => {
           <Flex
             borderRadius={"8px"}
             border={"1px solid black"}
-            p={2}
+            p={4}
             alignItems={"center"}
+            w={"300px"}
+            justifyContent={"center"}
           >
             <Text color="black">Корзина</Text>
             <Text mx={2} color={"black"}>

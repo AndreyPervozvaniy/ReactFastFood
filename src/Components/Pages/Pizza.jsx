@@ -7,18 +7,18 @@ import ProductStack from "../ProductStack/ProductStack";
 import ReviewComponent from "../Review/ReviewComponent";
 import Elevator from "../ElevatorComponent/Elevator";
 import BottomProductPart from "../BottomProductPart/BottomProductPart";
-const Noodles = () => {
+const Pizza = () => {
   return (
     <Flex flexDir={"column"}>
       <BackgroundWallpaper />
       <Elevator />
       <Header />
-      <ProductStack title="ВКУСНЕЙШАЯ ЛАПША В ДНЕПРЕ" type="noodles" />
-      <ReviewComponent page="Noodles" />
-      <BottomProductPart page="Noodles" />
+      <ProductStack title="ВКУСНЕЙШАЯ ПИЦЦА В ДНЕПРЕ" type="pizza" />
+      <ReviewComponent page="Pizza" />
+      <BottomProductPart page="Pizza" />
       <Footer />
     </Flex>
   );
 };
 
-export default Noodles;
+export default Pizza;

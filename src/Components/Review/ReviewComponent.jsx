@@ -23,6 +23,7 @@ const ReviewComponent = (props) => {
             .filter((item) => item.page === props.page)
             .map((item, index) => (
               <Flex
+                key={item.id}
                 w={"600px"}
                 border={"1px solid #ccc"}
                 borderRadius={"5px"}

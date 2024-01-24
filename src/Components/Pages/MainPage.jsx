@@ -15,10 +15,12 @@ import AccordionTemplate from "../MainPageContent/AccordionTemplate";
 import CarouselTemplate from "../Carousel/Carousel";
 import BackgroundWallpaper from "../MainPageContent/BackgroundWallpaper";
 import ReviewComponent from "../Review/ReviewComponent";
+import Elevator from "../ElevatorComponent/Elevator";
 const MainPage = () => {
   return (
     <Flex flexDirection={"column"}>
       <BackgroundWallpaper />
+      <Elevator />
       <Header />
       <Flex flexDir={"column"}>
         <CarouselTemplate />

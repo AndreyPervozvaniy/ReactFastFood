@@ -1,8 +1,6 @@
-import img1 from "../Assets/Image/CarouselContent/img1.jpeg";
-import img2 from "../Assets/Image/CarouselContent/img2.jpg";
-import img3 from "../Assets/Image/CarouselContent/img3.jpeg";
-import img4 from "../Assets/Image/CarouselContent/img4.jpeg";
-
+import img1 from "../Assets/Image/CarouselContent/1ah.jpg";
+import img2 from "../Assets/Image/CarouselContent/2ah.jpg";
+import img3 from "../Assets/Image/CarouselContent/3ah.jpg";
 export const CarouselData = [
   {
     image: img1,
@@ -16,8 +14,8 @@ export const CarouselData = [
     image: img3,
     id: 3,
   },
-  {
-    image: img4,
-    id: 4,
-  },
+  // {
+  //   image: img4,
+  //   id: 4,
+  // },
 ];

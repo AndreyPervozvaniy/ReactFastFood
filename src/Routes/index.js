@@ -6,7 +6,8 @@ import Noodles from "../Components/Pages/Noodles";
 import Rolls from "../Components/Pages/Rolls";
 import Sets from "../Components/Pages/Sets";
 import Soups from "../Components/Pages/Soups";
-
+import Burgers from "../Components/Pages/Burger";
+import Pizza from "../Components/Pages/Pizza";
 export const PATHS = {
   MAIN: "/",
   SUSHI: "/sushi",
@@ -16,6 +17,8 @@ export const PATHS = {
   ROLLS: "/rolls",
   SETS: "/sets",
   SOUPS: "/soups",
+  BURGERS: "/burgers",
+  PIZZA: "/pizza",
 };
 export const routes = [
   {
@@ -45,5 +48,13 @@ export const routes = [
   {
     path: PATHS.SOUPS,
     element: Soups,
+  },
+  {
+    path: PATHS.BURGERS,
+    element: Burgers,
+  },
+  {
+    path: PATHS.PIZZA,
+    element: Pizza,
   },
 ];
