@@ -39,9 +39,15 @@ const MainPage = () => {
           >
             Партнеры:
           </Text>
-          <Flex justifyContent={"space-around"} alignItems={"center"} p={"4%"}>
+          <Flex
+            justifyContent={"space-around"}
+            alignItems={"center"}
+            flexWrap={"wrap"}
+          >
             {PartnersData.map((item, index) => (
-              <Image src={item.image} w={"35%"} h={"250px"} />
+              <Flex>
+                <Image src={item.image} />
+              </Flex>
             ))}
           </Flex>
         </Flex>
@@ -80,16 +86,21 @@ const MainPage = () => {
           <Text fontSize={"lg"} fontWeight={"bold"}>
             Привносим ресторанное качество в еду с доставкой.
           </Text>
-          <Container maxW={"7xl"} mt={10}>
-            <Flex justify={"center"} flexWrap="wrap">
+          <Container maxW={"7xl"} mt={10} border={"2px solid red"}>
+            <Flex
+              justify={"center"}
+              flexWrap="wrap"
+              gridGap="6"
+              border={"2px solid black"}
+            >
               {BenefitData.map((item, index) => (
                 <Flex
                   key={index}
                   flexDir={"column"}
                   justifyContent={"center"}
                   alignItems={"center"}
-                  flexWrap="wrap"
-                  flex={1}
+                  border={"2px solid green"}
+                  maxW={{ base: "full", md: "275px", lg: "275px" }}
                 >
                   <Box borderRadius={"50%"} backgroundColor={item.color} p={2}>
                     <Icon
@@ -133,27 +144,53 @@ const MainPage = () => {
             роллы, супы, пицца и суши - доставка по Харькову всего нашего меню в
             считанные минуты!
           </Text>
-          <Flex flexDir={"column"} my={10} p={10}>
-            {AboutData.map((item, index) => (
-              <Flex flexDir={"row"} my={5}>
-                <Flex flexDir={"column"} w={"55%"} mx={10}>
-                  <Text fontWeight={"bold"} fontSize={"3xl"}>
-                    {item.title}
-                  </Text>
-                  <Box
-                    border={"1px solid blue"}
-                    w={100}
-                    h={1}
-                    backgroundColor={"blue"}
-                    my={5}
-                  ></Box>
-                  <Text fontWeight={"bold"}>{item.text}</Text>
-                </Flex>
+          <Container
+            maxW="7xl"
+            mt={10}
+            p={2}
+            flexWrap={"wrap"}
+            border={"2px solid red"}
+          >
+            <Flex flexDir={"column"}>
+              {" "}
+              {AboutData.map((item, index) => (
+                <Flex
+                  mt={5}
+                  border={"2px solid black"}
+                  flexWrap={"wrap"}
+                  alignItems={"center"}
+                  justify={"center"}
+                >
+                  <Flex flexDir={"column"} mr={"5px"}>
+                    <Text fontWeight={"bold"} fontSize={"3xl"}>
+                      {item.title}
+                    </Text>
+                    <Box
+                      border={"1px solid blue"}
+                      w={100}
+                      h={1}
+                      backgroundColor={"blue"}
+                      mt={5}
+                    ></Box>
+                    <Text
+                      mt={5}
+                      fontWeight={"bold"}
+                      maxW={{ base: "full", md: "2xl", lg: "3xl" }}
+                    >
+                      {item.text}
+                    </Text>
+                  </Flex>
 
-                <Image src={item.image} w={"550px"} borderRadius={"15px"} />
-              </Flex>
-            ))}
-          </Flex>
+                  <Image
+                    src={item.image}
+                    w={"md"}
+                    h={"md"}
+                    borderRadius={"15px"}
+                  />
+                </Flex>
+              ))}
+            </Flex>
+          </Container>
         </Flex>{" "}
         <Flex
           justify={"center"}

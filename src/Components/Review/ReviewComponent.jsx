@@ -33,10 +33,10 @@ const ReviewComponent = (props) => {
                 .map((item, index) => (
                   <Flex
                     key={item.id}
-                    w={"600px"}
+                    w={"500px"}
                     border={"1px solid #ccc"}
                     borderRadius={"5px"}
-                    p={4}
+                    p={2}
                     backgroundColor={"white"}
                   >
                     <Icon as={FaRegSmileBeam} w={12} h={12} />

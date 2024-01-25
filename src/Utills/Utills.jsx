@@ -13,13 +13,13 @@ import aboutImage2 from "../Assets/Image/aboutimage2.jpg";
 import bg from "../Assets/Image/bg.jpg";
 import bg2 from "../Assets/Image/bg2.jpg";
 import bg3 from "../Assets/Image/bg3.jpg";
-import cola from "../Assets/Image/colalogo.png";
-import vilenas from "../Assets/Image/vilenas.png";
-import watatsumi from "../Assets/Image/watatsumi.png";
+import pepsi from "../Assets/Image/pepsicola.webp";
+import vilenas from "../Assets/Image/vilenas.webp";
+import watatsumi from "../Assets/Image/wata.webp";
 
 export const PartnersData = [
   {
-    image: cola,
+    image: pepsi,
   },
   {
     image: vilenas,
