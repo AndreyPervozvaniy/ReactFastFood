@@ -7,7 +7,7 @@ import { CarouselData } from "../../Utills/CarouselContent";
 
 const CarouselTemplate = () => {
   return (
-    <Flex mt={200} color="white">
+    <Flex color="white">
       <Carousel
         infiniteLoop
         showArrows={false}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Flex, Icon, Image, Text } from "@chakra-ui/react";
 import Logo from "../../Assets/Image/Logo1.png";
 import { IoMdTime, IoMdCall } from "react-icons/io";
@@ -9,26 +9,40 @@ import { NavBarData } from "../../Utills/Utills";
 const Header = () => {
   const router = useNavigate();
   const currentLocation = useLocation();
+  const [showBag, setShowBag] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollThreshold = 200;
+      if (window.scrollY > scrollThreshold) {
+        setShowBag(true);
+      } else {
+        setShowBag(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
-    <Flex
-      pos={"absolute"}
-      w={"100%"}
-      h="200px"
-      background={"white"}
-      flexDir={"column"}
-    >
-      <Flex>
-        <Flex flexDir={"column"} justifyContent={"center"} w={"30%"} ml={5}>
+    <Flex w={"100%"} background={"white"} flexDir={"column"}>
+      <Flex backgroundColor={"#decb6a"} h={"30px"}>
+        <Text>'</Text>
+      </Flex>
+      <Flex justify={"space-around"}>
+        <Flex flexDir={"column"} justifyContent={"center"}>
           <Flex alignItems={"center"}>
-            <Icon as={IoMdTime} h={8} w={8} color={"black"} mx={10} />
+            <Icon as={IoMdTime} h={8} w={8} color={"black"} mx={5} />
             <Text color="black" fontWeight={"bold"}>
               {" "}
               Мы работаем с 10-00 до 21-00
             </Text>
           </Flex>
-          <Flex w={"100%"} alignItems={"center"} justify={"start"}>
-            <Icon as={IoMdCall} h={8} w={8} color={"black"} mx={10} />
+          <Flex alignItems={"center"} justify={"start"}>
+            <Icon as={IoMdCall} h={8} w={8} color={"black"} mx={5} />
             <Text
               color={"#ccc"}
               cursor={"pointer"}
@@ -39,15 +53,25 @@ const Header = () => {
             </Text>
           </Flex>
         </Flex>
-        <Flex alignItems={"center"} justify={"center"} w={"40%"}>
+        <Flex alignItems={"center"} justify={"center"}>
           <Image
             src={Logo}
             w={"300px"}
             cursor={"pointer"}
             onClick={() => router("/")}
+            mr={10}
           />
         </Flex>
-        <Flex w={"30%"} alignItems={"center"} justify={"end"} mr={10}>
+        <Flex
+          alignItems={"center"}
+          justify={"end"}
+          pos={showBag && "fixed"}
+          top={showBag && "0"}
+          right={showBag && "20"}
+          backgroundColor={showBag && "white"}
+          borderRadius={"8px"}
+          zIndex={1}
+        >
           <Flex
             borderRadius={"8px"}
             border={"1px solid black"}
@@ -77,7 +101,7 @@ const Header = () => {
         <Flex
           flexDir={"row"}
           justifyContent={"space-between"}
-          borderTop={"2px solid #ccc"}
+          borderTop={"3px solid #ccc"}
           transition={"ease-in-out 0.5s"}
           w={"90%"}
           _hover={{ borderColor: "black" }}
@@ -88,15 +112,15 @@ const Header = () => {
             <Flex
               borderBottom={
                 currentLocation.pathname === item.router
-                  ? "2px solid green"
-                  : "2px solid transparent"
+                  ? "3px solid green"
+                  : "3px solid transparent"
               }
               justify={"center"}
               alignItems={"center"}
               onClick={() => router(item.router)}
               _hover={{
                 backgroundColor: "#ccc",
-                borderBottom: "2px solid red",
+                borderBottom: "3px solid red",
               }}
               h={"100%"}
               overflow={"hidden"}

@@ -80,28 +80,33 @@ const MainPage = () => {
           <Text fontSize={"lg"} fontWeight={"bold"}>
             Привносим ресторанное качество в еду с доставкой.
           </Text>
-          <Container maxW={"7xl"} my={10}>
-            <Flex justify={"center"} flexWrap="wrap" gridGap={6}>
+          <Container maxW={"7xl"} mt={10}>
+            <Flex justify={"center"} flexWrap="wrap">
               {BenefitData.map((item, index) => (
                 <Flex
                   key={index}
                   flexDir={"column"}
                   justifyContent={"center"}
                   alignItems={"center"}
-                  w={"250px"}
+                  flexWrap="wrap"
                   flex={1}
                 >
-                  <Box borderRadius={"50%"} p={5} backgroundColor={item.color}>
-                    <Icon as={item.icon} w={20} h={20} color={"white"} />
+                  <Box borderRadius={"50%"} backgroundColor={item.color} p={2}>
+                    <Icon
+                      as={item.icon}
+                      w={"120px"}
+                      h={"120px"}
+                      color={"white"}
+                    />
                   </Box>
 
                   <Text fontWeight={"bold"} fontSize={"xl"} mt={2}>
                     {item.title}
                   </Text>
-                  <Box w={"80px"} h={"5px"} backgroundColor={item.color} my={2}>
+                  <Box w={"80px"} h={"5px"} backgroundColor={item.color} mt={2}>
                     {" "}
                   </Box>
-                  <Text fontWeight={"bold"} mt={4}>
+                  <Text fontWeight={"bold"} mt={2}>
                     {item.mainText}
                   </Text>
                 </Flex>
@@ -114,7 +119,7 @@ const MainPage = () => {
           flexDir={"column"}
           justifyContent={"center"}
           alignItems={"center"}
-          my={10}
+          mt={10}
         >
           <Text
             border={"2px solid black"}
