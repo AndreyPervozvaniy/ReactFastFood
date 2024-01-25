@@ -86,20 +86,14 @@ const MainPage = () => {
           <Text fontSize={"lg"} fontWeight={"bold"}>
             Привносим ресторанное качество в еду с доставкой.
           </Text>
-          <Container maxW={"7xl"} mt={10} border={"2px solid red"}>
-            <Flex
-              justify={"center"}
-              flexWrap="wrap"
-              gridGap="6"
-              border={"2px solid black"}
-            >
+          <Container maxW={"7xl"} mt={10}>
+            <Flex justify={"center"} flexWrap="wrap" gridGap="6">
               {BenefitData.map((item, index) => (
                 <Flex
                   key={index}
                   flexDir={"column"}
                   justifyContent={"center"}
                   alignItems={"center"}
-                  border={"2px solid green"}
                   maxW={{ base: "full", md: "275px", lg: "275px" }}
                 >
                   <Box borderRadius={"50%"} backgroundColor={item.color} p={2}>
@@ -144,19 +138,12 @@ const MainPage = () => {
             роллы, супы, пицца и суши - доставка по Харькову всего нашего меню в
             считанные минуты!
           </Text>
-          <Container
-            maxW="7xl"
-            mt={10}
-            p={2}
-            flexWrap={"wrap"}
-            border={"2px solid red"}
-          >
+          <Container maxW="7xl" mt={10} p={2} flexWrap={"wrap"}>
             <Flex flexDir={"column"}>
               {" "}
               {AboutData.map((item, index) => (
                 <Flex
                   mt={5}
-                  border={"2px solid black"}
                   flexWrap={"wrap"}
                   alignItems={"center"}
                   justify={"center"}
