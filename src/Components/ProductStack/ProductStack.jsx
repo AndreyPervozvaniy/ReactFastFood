@@ -5,10 +5,11 @@ import { FaStar } from "react-icons/fa";
 import SkeletonProduct from "../Skeleton/SkeletonProduct";
 import { useDispatch, useSelector } from "react-redux";
 import { addItems } from "../../Redux/CartSlice";
-
+import { useToast } from "@chakra-ui/react";
 const ProductStack = (props) => {
   const [dataBack, setDataBack] = useState([]);
   const [dataLoading, setDataLoading] = useState(true);
+  const toast = useToast();
   const dispatch = useDispatch();
   useEffect(() => {
     function getData() {
@@ -26,6 +27,13 @@ const ProductStack = (props) => {
   const [isHovered, setIsHovered] = useState(null);
   const handleClick = (item) => {
     dispatch(addItems(item));
+    toast({
+      title: "Товар добавлен",
+      description: `Товар ${item.name} на сумму ${item.cost} добавлен в корзину!`,
+      status: "success",
+      duration: 9000,
+      isClosable: true,
+    });
   };
   return (
     <Flex flexDir={"column"}>

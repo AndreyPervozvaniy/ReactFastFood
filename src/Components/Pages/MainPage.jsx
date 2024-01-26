@@ -45,7 +45,7 @@ const MainPage = () => {
             flexWrap={"wrap"}
           >
             {PartnersData.map((item, index) => (
-              <Flex>
+              <Flex key={index}>
                 <Image src={item.image} />
               </Flex>
             ))}
@@ -143,6 +143,7 @@ const MainPage = () => {
               {" "}
               {AboutData.map((item, index) => (
                 <Flex
+                  key={index}
                   mt={5}
                   flexWrap={"wrap"}
                   alignItems={"center"}
