@@ -197,7 +197,7 @@ const MainPage = () => {
           </Text>
           <Flex flexDir={"column"} w={"100%"}>
             {MenuData.map((item, index) => (
-              <Flex justify={"center"} flexDir={"row"}>
+              <Flex key={index} justify={"center"} flexDir={"row"}>
                 <Flex
                   w={"95%"}
                   h={"400px"}

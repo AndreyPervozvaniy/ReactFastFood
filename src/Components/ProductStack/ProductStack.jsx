@@ -9,7 +9,7 @@ import { addItems } from "../../Redux/CartSlice";
 const ProductStack = (props) => {
   const [dataBack, setDataBack] = useState([]);
   const [dataLoading, setDataLoading] = useState(true);
-
+  const dispatch = useDispatch();
   useEffect(() => {
     function getData() {
       axios
@@ -24,6 +24,9 @@ const ProductStack = (props) => {
   }, []);
 
   const [isHovered, setIsHovered] = useState(null);
+  const handleClick = (item) => {
+    dispatch(addItems(item));
+  };
   return (
     <Flex flexDir={"column"}>
       <Flex flexDir={"column"} justify={"center"} alignItems={"center"}>
@@ -111,7 +114,11 @@ const ProductStack = (props) => {
                           <Text fontSize={"2xl"}>{item.weight}</Text>
                         </Flex>
 
-                        <Button backgroundColor={"#decb6a"}>
+                        <Button
+                          key={item.id}
+                          backgroundColor={"#decb6a"}
+                          onClick={() => handleClick(item)}
+                        >
                           <Text fontWeight={"bold"}>ЗАКАЗАТЬ</Text>
                         </Button>
                       </Flex>

@@ -112,6 +112,7 @@ const Header = () => {
         >
           {NavBarData.map((item, index) => (
             <Flex
+              key={index}
               borderBottom={
                 currentLocation.pathname === item.router
                   ? "3px solid green"
