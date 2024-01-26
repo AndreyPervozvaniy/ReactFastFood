@@ -1,12 +1,15 @@
-import { Container, Icon, Flex, Image, Text } from "@chakra-ui/react";
+import { Container, Icon, Flex, Image, Text, Button } from "@chakra-ui/react";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { FaStar } from "react-icons/fa";
 import SkeletonProduct from "../Skeleton/SkeletonProduct";
-import SkeletonReview from "../Skeleton/SkeletonReview";
+import { useDispatch, useSelector } from "react-redux";
+import { addItems } from "../../Redux/CartSlice";
+
 const ProductStack = (props) => {
   const [dataBack, setDataBack] = useState([]);
   const [dataLoading, setDataLoading] = useState(true);
+
   useEffect(() => {
     function getData() {
       axios
@@ -17,6 +20,7 @@ const ProductStack = (props) => {
         });
     }
     getData();
+    console.log("reloaded");
   }, []);
 
   const [isHovered, setIsHovered] = useState(null);
@@ -35,7 +39,7 @@ const ProductStack = (props) => {
                 ))
               : dataBack
                   .filter((item) => item.type === props.type)
-                  .map((item, index) => (
+                  .map((item, id) => (
                     <Flex
                       key={item.id}
                       w={"600px"}
@@ -89,16 +93,27 @@ const ProductStack = (props) => {
                           <Image src={item.imageURL} loading="eager" />
                         </Flex>
                       )}
-                      <Flex flexDir={"row"} alignItems={"center"}>
-                        <Text fontWeight={"bold"} fontSize={"2xl"}>
-                          {item.cost}
-                        </Text>
-                        <Flex
-                          h={"30px"}
-                          border={"1px solid black"}
-                          mx={2}
-                        ></Flex>
-                        <Text fontSize={"2xl"}>{item.weight}</Text>
+                      <Flex
+                        flexDir={"row"}
+                        alignItems={"center"}
+                        justifyContent={"space-between"}
+                      >
+                        <Flex>
+                          {" "}
+                          <Text fontWeight={"bold"} fontSize={"2xl"}>
+                            {item.cost}
+                          </Text>
+                          <Flex
+                            h={"30px"}
+                            border={"1px solid black"}
+                            mx={2}
+                          ></Flex>
+                          <Text fontSize={"2xl"}>{item.weight}</Text>
+                        </Flex>
+
+                        <Button backgroundColor={"#decb6a"}>
+                          <Text fontWeight={"bold"}>ЗАКАЗАТЬ</Text>
+                        </Button>
                       </Flex>
                     </Flex>
                   ))}

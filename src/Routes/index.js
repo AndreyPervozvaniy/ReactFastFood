@@ -57,4 +57,8 @@ export const routes = [
     path: PATHS.PIZZA,
     element: Pizza,
   },
+  {
+    path: PATHS.BAG,
+    element: Bag,
+  },
 ];

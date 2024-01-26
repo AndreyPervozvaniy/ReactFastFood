@@ -5,8 +5,9 @@ import { IoMdTime, IoMdCall } from "react-icons/io";
 import { CiShoppingCart } from "react-icons/ci";
 import { useLocation, useNavigate } from "react-router-dom";
 import { NavBarData } from "../../Utills/Utills";
-
+import { useSelector } from "react-redux";
 const Header = () => {
+  const { totalPrice, cart } = useSelector((state) => state.CartSlice);
   const router = useNavigate();
   const currentLocation = useLocation();
   const [showBag, setShowBag] = useState(false);
@@ -82,7 +83,7 @@ const Header = () => {
           >
             <Text color="black">Корзина</Text>
             <Text mx={2} color={"black"}>
-              0 UAH.
+              {totalPrice} UAH.
             </Text>
             <Icon
               as={CiShoppingCart}
@@ -93,6 +94,7 @@ const Header = () => {
               onClick={() => router("/bag")}
               cursor={"pointer"}
             />
+            <Text>{cart.length}</Text>
           </Flex>
         </Flex>
       </Flex>

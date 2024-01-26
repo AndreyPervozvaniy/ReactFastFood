@@ -60,7 +60,7 @@ const ReviewComponent = (props) => {
                               as={FaStar}
                               color={
                                 index < item.starCount ? "#c78500" : "gray"
-                              } // Используйте серый цвет для незакрашенных звезд
+                              }
                               h={4}
                               w={4}
                             />

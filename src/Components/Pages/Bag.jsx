@@ -1,4 +1,4 @@
-import { Flex } from "@chakra-ui/react";
+import { Button, Flex, Text } from "@chakra-ui/react";
 import React from "react";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
@@ -9,7 +9,7 @@ const Bag = () => {
     <Flex flexDir={"column"}>
       <BackgroundWallpaper />
       <Header />
-      <Flex></Flex>
+
       <Footer />
     </Flex>
   );
