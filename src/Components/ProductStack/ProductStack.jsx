@@ -11,25 +11,25 @@ const ProductStack = (props) => {
   const [dataLoading, setDataLoading] = useState(true);
   const toast = useToast();
   const dispatch = useDispatch();
+  function getData() {
+    axios
+      .get("https://65a93323219bfa371868c106.mockapi.io/Sushi")
+      .then((res) => {
+        setDataBack(res.data);
+        setDataLoading(false);
+      });
+  }
   useEffect(() => {
-    function getData() {
-      axios
-        .get("https://65a93323219bfa371868c106.mockapi.io/Sushi")
-        .then((res) => {
-          setDataBack(res.data);
-          setDataLoading(false);
-        });
-    }
     getData();
     console.log("reloaded");
   }, []);
 
   const [isHovered, setIsHovered] = useState(null);
-  const handleClick = (item) => {
+  const addItemInCart = (item) => {
     dispatch(addItems(item));
     toast({
       title: "Товар добавлен",
-      description: `Товар ${item.name} на сумму ${item.cost} добавлен в корзину!`,
+      description: `Товар ${item.name} на сумму (${item.cost} грн.)  добавлен в корзину!`,
       status: "success",
       duration: 9000,
       isClosable: true,
@@ -125,7 +125,7 @@ const ProductStack = (props) => {
                         <Button
                           key={item.id}
                           backgroundColor={"#decb6a"}
-                          onClick={() => handleClick(item)}
+                          onClick={() => addItemInCart(item)}
                         >
                           <Text fontWeight={"bold"}>ЗАКАЗАТЬ</Text>
                         </Button>
