@@ -14,8 +14,4 @@ export const CarouselData = [
     image: img3,
     id: 3,
   },
-  // {
-  //   image: img4,
-  //   id: 4,
-  // },
 ];

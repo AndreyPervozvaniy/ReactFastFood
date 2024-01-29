@@ -1,5 +1,6 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
+
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import { Button, Tabs, Menu } from "@chakra-ui/react";
 import App from "./App";
@@ -15,7 +16,7 @@ const theme = extendTheme({
   },
 });
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = createRoot(document.getElementById("root"));
 
 root.render(
   <Provider store={store}>

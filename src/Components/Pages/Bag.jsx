@@ -2,9 +2,9 @@ import { Button, Flex, Icon, Image, Text } from "@chakra-ui/react";
 import React from "react";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
-import BackgroundWallpaper from "../MainPageContent/BackgroundWallpaper";
 import { useDispatch, useSelector } from "react-redux";
 import { CiTrash } from "react-icons/ci";
+import empryCart from "../../Assets/Image/emptyCart.png";
 import {
   clearCart,
   removeItems,
@@ -12,26 +12,26 @@ import {
   decreaseCount,
 } from "../../Redux/CartSlice";
 const Bag = () => {
-  const clearAllCart = useDispatch();
-  const dispatchRemove = useDispatch();
-  const decreaseHandle = useDispatch();
-  const { cart, totalCount } = useSelector((state) => state.CartSlice);
-  const removeItemFromCart = (itemId) => {
-    dispatchRemove(removeItems(itemId));
-  };
-  const handleClearAllCart = () => {
-    clearAllCart(clearCart());
-  };
-  const decreaseCountItem = (item) => {
-    decreaseHandle(decreaseCount(item));
-  };
   const dispatch = useDispatch();
+  const { cart, totalCount, totalPrice } = useSelector(
+    (state) => state.CartSlice
+  );
   const addItemInCart = (item) => {
     dispatch(addItems(item));
   };
+  const removeItemFromCart = (itemId) => {
+    dispatch(removeItems(itemId));
+  };
+  const decreaseCountItem = (item) => {
+    dispatch(decreaseCount(item));
+  };
+  const handleClearAllCart = () => {
+    dispatch(clearCart());
+  };
+  const minimalOrder = 250;
+  const freeDeliver = 400;
   return (
     <Flex flexDir={"column"}>
-      {/* <BackgroundWallpaper /> */}
       <Header />
       <Flex justifyContent={"space-around"}>
         <Flex flexDir={"column"} mt={"10px"}>
@@ -49,19 +49,22 @@ const Bag = () => {
             </Text>
             <Button
               variant={"ghost"}
-              _hover={{ backgroundColor: "white", textDecor: "underline" }}
+              _hover={{
+                backgroundColor: "transparent",
+                textDecor: "underline",
+              }}
               onClick={() => handleClearAllCart()}
             >
               Очистить корзину
             </Button>
           </Flex>
           <Flex
+            justify={"center"}
             overflow={"hidden"}
             overflowY={"auto"}
-            h={"600px"}
+            maxH={"400px"}
             flexWrap={"wrap"}
           >
-            {" "}
             {totalCount >= 1 ? (
               cart.map((item, _) => (
                 <Flex key={item.id} flexDir={"column"} w="90%">
@@ -70,7 +73,13 @@ const Bag = () => {
                     alignItems={"center"}
                     justifyContent={"space-between"}
                   >
-                    <Image src={item.imageURL} w={"250px"} h={"200px"} />
+                    <Image
+                      p={3}
+                      borderRadius={"50%"}
+                      src={item.imageURL}
+                      w={"250px"}
+                      h={"200px"}
+                    />
                     <Flex flexDir={"column"} justify={"center"}>
                       <Text>{item.name}</Text>
                       <Flex
@@ -83,7 +92,7 @@ const Bag = () => {
                           variant={"outline"}
                           onClick={() => decreaseCountItem(item)}
                           border={"1px solid black"}
-                          _hover={{ backgroundColor: "white" }}
+                          _hover={{ backgroundColor: "transparent" }}
                           isDisabled={item.count === 1}
                           w="30px"
                         >
@@ -97,7 +106,7 @@ const Bag = () => {
                           onClick={() => addItemInCart(item)}
                           border={"1px solid black"}
                           isDisabled={item.count === 9}
-                          _hover={{ backgroundColor: "white" }}
+                          _hover={{ backgroundColor: "transparent" }}
                           w="30px"
                         >
                           +
@@ -109,7 +118,7 @@ const Bag = () => {
                         variant={"outline"}
                         onClick={() => removeItemFromCart(item.id)}
                         border={"none"}
-                        _hover={{ backgroundColor: "white" }}
+                        _hover={{ backgroundColor: "transparent" }}
                       >
                         <Icon as={CiTrash} />
                       </Button>
@@ -120,8 +129,36 @@ const Bag = () => {
                 </Flex>
               ))
             ) : (
-              <Text>Cart is empty </Text>
+              <Flex justifyContent={"center"} alignItems={"center"}>
+                <Image src={empryCart} />
+              </Flex>
             )}{" "}
+          </Flex>
+          <Flex mt={10} flexDir={"row"} justifyContent={"space-between"}>
+            <Text>Доставка </Text>
+            {totalPrice < minimalOrder ? (
+              <Text>Доставка невозможна, минимальный заказ 250 грн </Text>
+            ) : totalPrice <= freeDeliver ? (
+              <Text>Доставка 50 грн</Text>
+            ) : (
+              <Text fontWeight="bold" color="green">
+                Доставка бесплатна!
+              </Text>
+            )}
+          </Flex>{" "}
+          <Flex
+            mt={10}
+            flexDir={"row"}
+            justifyContent={"space-between"}
+            alignItems={"center"}
+          >
+            <Text fontWeight={"bold"}>ОБЩАЯ СТОИМОСТЬ: </Text>
+            <Text fontWeight={"bold"} fontSize={"3xl"} textDecor={"underline"}>
+              {totalPrice < minimalOrder
+                ? totalPrice
+                : totalPrice + (totalPrice < freeDeliver ? 50 : 0)}{" "}
+              грн.
+            </Text>
           </Flex>
         </Flex>
       </Flex>

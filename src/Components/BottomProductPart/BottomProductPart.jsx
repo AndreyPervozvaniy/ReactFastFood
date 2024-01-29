@@ -1,12 +1,12 @@
 import { Flex, Text } from "@chakra-ui/react";
 import React from "react";
-import { bottomProductData } from "../../Utills/Utills";
+import { bottomDescriptionMainPage } from "../../Utills/Utills";
 const BottomProductPart = (props) => {
   return (
     <Flex mt={10} p={10}>
-      {bottomProductData
+      {bottomDescriptionMainPage
         .filter((item) => item.page === props.page)
-        .map((item, index) => (
+        .map((item) => (
           <Flex key={item.id} flexDir={"row"} justifyContent={"space-between"}>
             <Flex flexDir="column" w={"70%"}>
               <Text fontWeight={"bold"} fontSize={"4xl"}>

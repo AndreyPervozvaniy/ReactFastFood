@@ -167,7 +167,7 @@ export const NavBarData = [
     router: "/pizza",
   },
 ];
-export const bottomProductData = [
+export const bottomDescriptionMainPage = [
   {
     page: "Sushi",
     id: 1,

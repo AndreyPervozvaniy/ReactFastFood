@@ -7,19 +7,17 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { NavBarData } from "../../Utills/Utills";
 import { useSelector } from "react-redux";
 const Header = () => {
-  const { totalPrice, cart, totalCount } = useSelector(
-    (state) => state.CartSlice
-  );
+  const { totalPrice, totalCount } = useSelector((state) => state.CartSlice);
   const router = useNavigate();
   const currentLocation = useLocation();
-  const [showBag, setShowBag] = useState(false);
+  const [elevateBag, setElevateBag] = useState(false);
   useEffect(() => {
     const handleScroll = () => {
       const scrollThreshold = 200;
       if (window.scrollY > scrollThreshold) {
-        setShowBag(true);
+        setElevateBag(true);
       } else {
-        setShowBag(false);
+        setElevateBag(false);
       }
     };
 
@@ -32,8 +30,8 @@ const Header = () => {
 
   return (
     <Flex w={"100%"} background={"white"} flexDir={"column"}>
-      <Flex backgroundColor={"#decb6a"} h={"30px"}>
-        <Text>'</Text>
+      <Flex backgroundColor={"#decb6a"} h={"30px"} justify={"center"}>
+        <Text> Тут будет хуевар! Да-да, не удивляйтесь!</Text>
       </Flex>
       <Flex justify={"space-around"}>
         <Flex flexDir={"column"} justifyContent={"center"}>
@@ -65,40 +63,42 @@ const Header = () => {
             mr={10}
           />
         </Flex>
-        <Flex
-          alignItems={"center"}
-          justify={"end"}
-          pos={showBag && "fixed"}
-          top={showBag && "0"}
-          right={showBag && "20"}
-          backgroundColor={showBag && "white"}
-          borderRadius={"8px"}
-          zIndex={1}
-        >
+        {currentLocation.pathname != "/bag" && (
           <Flex
-            borderRadius={"8px"}
-            border={"1px solid black"}
-            p={4}
             alignItems={"center"}
-            w={"300px"}
-            justifyContent={"center"}
+            justify={"end"}
+            pos={elevateBag && "fixed"}
+            top={elevateBag && "0"}
+            right={elevateBag && "20"}
+            backgroundColor={elevateBag && "white"}
+            borderRadius={"8px"}
+            zIndex={1}
           >
-            <Text color="black">Корзина</Text>
-            <Text mx={2} color={"black"}>
-              {totalPrice} UAH.
-            </Text>
-            <Icon
-              as={CiShoppingCart}
-              h={8}
-              w={8}
-              color={"black"}
-              mx={2}
-              onClick={() => router("/bag")}
-              cursor={"pointer"}
-            />
-            <Text>{totalCount}</Text>
+            <Flex
+              borderRadius={"8px"}
+              border={"1px solid black"}
+              p={4}
+              alignItems={"center"}
+              w={"300px"}
+              justifyContent={"center"}
+            >
+              <Text color="black">Корзина</Text>
+              <Text mx={2} color={"black"}>
+                {totalPrice} UAH.
+              </Text>
+              <Icon
+                as={CiShoppingCart}
+                h={8}
+                w={8}
+                color={"black"}
+                mx={2}
+                onClick={() => router("/bag")}
+                cursor={"pointer"}
+              />
+              <Text>{totalCount}</Text>
+            </Flex>
           </Flex>
-        </Flex>
+        )}
       </Flex>
 
       <Flex justify={"center"}>

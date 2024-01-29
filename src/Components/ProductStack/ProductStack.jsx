@@ -6,7 +6,7 @@ import SkeletonProduct from "../Skeleton/SkeletonProduct";
 import { useDispatch, useSelector } from "react-redux";
 import { addItems } from "../../Redux/CartSlice";
 import { useToast } from "@chakra-ui/react";
-import { IoIosArrowDown } from "react-icons/io";
+
 const ProductStack = (props) => {
   const [dataBack, setDataBack] = useState([]);
   const [dataLoading, setDataLoading] = useState(true);
@@ -30,28 +30,37 @@ const ProductStack = (props) => {
     const itemInCart = cart.find((item) => item.id === itemId);
     return itemInCart ? itemInCart.count < 9 : true;
   };
+  const showToast = (isSuccess, item) => {
+    const toastSettings = {
+      position: "top",
+      duration: 2000,
+      isClosable: true,
+    };
+
+    if (isSuccess) {
+      toast({
+        ...toastSettings,
+        title: "Товар добавлен",
+        description: `Товар ${item.name} на сумму (${item.cost} грн.) добавлен в корзину!`,
+        status: "success",
+      });
+    } else {
+      toast({
+        ...toastSettings,
+        title: "Уважаемый Клиент!",
+        description:
+          "Сжальтесь над нашими поварами! =) У нас действуют ограничение на 9 позиций одного товара!",
+        status: "error",
+      });
+    }
+  };
+
+  // Использование функции showToast
+
   const [isHovered, setIsHovered] = useState(null);
   const addItemInCart = (item) => {
     dispatch(addItems(item));
-    {
-      countChecker(item.id)
-        ? toast({
-            title: "Товар добавлен",
-            description: `Товар ${item.name} на сумму (${item.cost} грн.)  добавлен в корзину!`,
-            position: "top",
-            status: "success",
-            duration: 2000,
-            isClosable: true,
-          })
-        : toast({
-            title: "Уважаемый Клиент!",
-            description: `Сжальтесь над нашими поварами! =)`,
-            position: "top",
-            status: "error",
-            duration: 2000,
-            isClosable: true,
-          });
-    }
+    showToast(countChecker(item.id), item);
   };
 
   return (
@@ -127,6 +136,7 @@ const ProductStack = (props) => {
                         flexDir={"row"}
                         alignItems={"center"}
                         justifyContent={"space-between"}
+                        mt={5}
                       >
                         <Flex>
                           {" "}
