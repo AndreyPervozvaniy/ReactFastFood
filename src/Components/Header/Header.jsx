@@ -7,7 +7,9 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { NavBarData } from "../../Utills/Utills";
 import { useSelector } from "react-redux";
 const Header = () => {
-  const { totalPrice, cart } = useSelector((state) => state.CartSlice);
+  const { totalPrice, cart, totalCount } = useSelector(
+    (state) => state.CartSlice
+  );
   const router = useNavigate();
   const currentLocation = useLocation();
   const [showBag, setShowBag] = useState(false);
@@ -94,7 +96,7 @@ const Header = () => {
               onClick={() => router("/bag")}
               cursor={"pointer"}
             />
-            <Text>{cart.length}</Text>
+            <Text>{totalCount}</Text>
           </Flex>
         </Flex>
       </Flex>
