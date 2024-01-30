@@ -41,7 +41,6 @@ const CartSlice = createSlice({
       const existItem = state.cart.find((obj) => obj.id === action.payload.id);
       if (existItem) {
         existItem.count--;
-        console.log(state.cart);
       }
       updateCountAndPrice(state);
     },

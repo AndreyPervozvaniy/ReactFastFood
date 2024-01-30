@@ -37,7 +37,6 @@ const Bag = () => {
       <Header />
       <Flex justifyContent={"space-around"}>
         <Flex flexDir={"column"} mt={"10px"}>
-          {" "}
           <Text fontWeight={"bold"} fontSize={"3xl"} textAlign={"start"}>
             Детали оплаты
           </Text>

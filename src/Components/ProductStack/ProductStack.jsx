@@ -55,8 +55,6 @@ const ProductStack = ({ title, type }) => {
     }
   };
 
-  // Использование функции showToast
-
   const [isHovered, setIsHovered] = useState(null);
   const addItemInCart = (item) => {
     dispatch(addItems(item));
@@ -78,7 +76,7 @@ const ProductStack = ({ title, type }) => {
                 ))
               : dataFromApi
                   .filter((item) => item.type === type)
-                  .map((item, id) => (
+                  .map((item) => (
                     <Flex
                       key={item.id}
                       w={"600px"}
