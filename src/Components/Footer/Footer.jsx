@@ -9,6 +9,7 @@ const Footer = () => {
       h={"100px"}
       bottom={"0"}
       mt={"20px"}
+      borderTop={"1px solid #ccc"}
     >
       <Flex justify={"space-between"} flexDir={"row"} w={"100%"}>
         <Text w={"30%"}>Страницы </Text>{" "}

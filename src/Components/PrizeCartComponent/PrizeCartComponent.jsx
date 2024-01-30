@@ -23,7 +23,7 @@ const PrizeCartComponent = () => {
       ) : totalPrice < rollPrize ? (
         <Flex backgroundColor={"#fdedeb"} flexDir={"column"} p={4}>
           <Text fontWeight={"bold"}>
-            Дарим бутылку Pepsi 1 л. к этой сумме заказа
+            Дарим бутылку Pepsi 1 л. к этой сумме заказа!
           </Text>
           <Text>ДОБАВЬТЕ ЕЩЕ {rollPrize - totalPrice} ГРН</Text>
           <Text>чтобы улучшить подарок до ролла Микс лосось ❤️</Text>
@@ -31,7 +31,7 @@ const PrizeCartComponent = () => {
       ) : totalPrice < burgerPrize ? (
         <Flex backgroundColor={"#fdedeb"} flexDir={"column"} p={4}>
           <Text fontWeight={"bold"}>
-            Дарим ролл Микс лосось к этой сумме заказа
+            Дарим ролл Микс лосось к этой сумме заказа!
           </Text>
           <Text>ДОБАВЬТЕ ЕЩЕ {burgerPrize - totalPrice} ГРН</Text>
           <Text>чтобы улучшить подарок до Суши бургер с лососем ❤️</Text>

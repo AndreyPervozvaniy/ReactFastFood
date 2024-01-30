@@ -1,21 +1,22 @@
 import React from "react";
-import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
+import Header from "../Components/Header/Header";
+import Footer from "../Components/Footer/Footer";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import {
   AboutData,
   MenuData,
   PartnersData,
   BenefitData,
-} from "../../Utills/Utills";
+} from "../Utills/Utills";
 
 import { Container, Icon, Flex, Image, Text, Box } from "@chakra-ui/react";
-import Logo from "../../Assets/Image/Logo1.png";
-import AccordionTemplate from "../MainPageContent/AccordionTemplate";
-import CarouselTemplate from "../Carousel/Carousel";
-import BackgroundWallpaper from "../MainPageContent/BackgroundWallpaper";
-import ReviewComponent from "../Review/ReviewComponent";
-import Elevator from "../ElevatorComponent/Elevator";
+import Logo from "../Assets/Image/Logo1.png";
+import AccordionTemplate from "../Components/MainPageContent/AccordionTemplate";
+import CarouselTemplate from "../Components/MainPageContent/Carousel";
+import BackgroundWallpaper from "../Components/MainPageContent/BackgroundWallpaper";
+import ReviewComponent from "../Components/Review/ReviewComponent";
+import Elevator from "../Components/ElevatorComponent/Elevator";
+import ProductStack from "../Components/ProductStack/ProductStack";
 const MainPage = () => {
   return (
     <Flex flexDirection={"column"}>
@@ -24,11 +25,17 @@ const MainPage = () => {
       <Header />
       <Flex flexDir={"column"}>
         <CarouselTemplate />
-        <Flex textAlign={"center"} justify={"center"} p={"5"}>
+        <Flex
+          textAlign={"center"}
+          justify={"center"}
+          p={"5"}
+          flexDir={"column"}
+        >
           <Text fontWeight={"bold"} fontSize={"4xl"}>
             {" "}
             Вкусные новинки
           </Text>
+          <ProductStack type="sets" />
         </Flex>{" "}
         <Flex flexDir={"column"} justify={"center"} textAlign={"center"}>
           <Text

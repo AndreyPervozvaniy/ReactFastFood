@@ -1,13 +1,13 @@
-import Main from "../Components/Pages/MainPage";
-import Sushi from "../Components/Pages/Sushi";
-import Bag from "../Components/Pages/Bag";
-import Kebab from "../Components/Pages/Kebab";
-import Noodles from "../Components/Pages/Noodles";
-import Rolls from "../Components/Pages/Rolls";
-import Sets from "../Components/Pages/Sets";
-import Soups from "../Components/Pages/Soups";
-import Burgers from "../Components/Pages/Burger";
-import Pizza from "../Components/Pages/Pizza";
+import Main from "../Pages/MainPage";
+import Sushi from "../Pages/Sushi";
+import Bag from "../Pages/Bag";
+import Kebab from "../Pages/Kebab";
+import Noodles from "../Pages/Noodles";
+import Rolls from "../Pages/Rolls";
+import Sets from "../Pages/Sets";
+import Soups from "../Pages/Soups";
+import Burgers from "../Pages/Burger";
+import Pizza from "../Pages/Pizza";
 export const PATHS = {
   MAIN: "/",
   SUSHI: "/sushi",

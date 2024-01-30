@@ -1,19 +1,24 @@
 import { Button, Flex, Icon, Image, Text } from "@chakra-ui/react";
 import React from "react";
-import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
+import Header from "../Components/Header/Header";
+import Footer from "../Components/Footer/Footer";
 import { useDispatch, useSelector } from "react-redux";
 import { CiTrash } from "react-icons/ci";
-import empryCart from "../../Assets/Image/emptyCart.png";
+import empryCart from "../Assets/Image/emptyCart.png";
 import {
   clearCart,
   removeItems,
   addItems,
   decreaseCount,
-} from "../../Redux/CartSlice";
-import PrizeCartComponent from "../PrizeCartComponent/PrizeCartComponent";
+} from "../Redux/CartSlice";
+import PrizeCartComponent from "../Components/PrizeCartComponent/PrizeCartComponent";
+import { useNavigate } from "react-router-dom";
+import { FaStar } from "react-icons/fa";
+import { DeliverInfo } from "../Utills/Utills";
+import Elevator from "../Components/ElevatorComponent/Elevator";
 const Bag = () => {
   const dispatch = useDispatch();
+  const router = useNavigate();
   const { cart, totalCount, totalPrice } = useSelector(
     (state) => state.CartSlice
   );
@@ -35,6 +40,7 @@ const Bag = () => {
   return (
     <Flex flexDir={"column"}>
       <Header />
+      <Elevator />
       <Flex justifyContent={"space-around"}>
         <Flex flexDir={"column"} mt={"10px"}>
           <Text fontWeight={"bold"} fontSize={"3xl"} textAlign={"start"}>
@@ -49,20 +55,14 @@ const Bag = () => {
               Ваш заказ
             </Text>
             <Button
-              variant={"ghost"}
+              variant={"outline"}
               _hover={{
                 backgroundColor: "transparent",
                 textDecor: "underline",
               }}
               onClick={() => handleClearAllCart()}
             >
-              <Text
-                style={{
-                  fontWeight: "bold",
-                  color: "red",
-                  textDecorationColor: "blue",
-                }}
-              >
+              <Text fontWeight={"bold"} color={"red"}>
                 Очистить корзину{" "}
               </Text>
             </Button>
@@ -142,8 +142,15 @@ const Bag = () => {
               <PrizeCartComponent />
             </Flex>
           ) : (
-            <Flex justifyContent={"center"} alignItems={"center"}>
-              <Image src={empryCart} />
+            <Flex
+              justifyContent={"center"}
+              alignItems={"center"}
+              flexDir={"column"}
+            >
+              <Image src={empryCart} w={"500px"} h={"400px"} />
+              <Button variant={"outline"} onClick={() => router("/sets")}>
+                <Text>Заполнить корзину!</Text>
+              </Button>
             </Flex>
           )}
           <Flex
@@ -153,7 +160,7 @@ const Bag = () => {
             justifyContent={"space-between"}
             alignItems={"center"}
           >
-            <Text>Доставка </Text>
+            <Text>Доставка :</Text>
             {totalPrice < minimalOrder ? (
               <Flex flexDir={"column"} textAlign={"center"}>
                 <Text fontWeight={"bold"}>
@@ -165,7 +172,7 @@ const Bag = () => {
               <Text>Доставка 50 грн</Text>
             ) : (
               <Text fontWeight="bold" color="green">
-                Доставка бесплатна!
+                Бесплатно!
               </Text>
             )}
           </Flex>{" "}
@@ -175,13 +182,22 @@ const Bag = () => {
             justifyContent={"space-between"}
             alignItems={"center"}
           >
-            <Text fontWeight={"bold"}>ОБЩАЯ СТОИМОСТЬ: </Text>
+            <Text fontWeight={"bold"}>ОБЩАЯ СТОИМОСТЬ : </Text>
             <Text fontWeight={"bold"} fontSize={"3xl"} textDecor={"underline"}>
               {totalPrice < minimalOrder
                 ? totalPrice
                 : totalPrice + (totalPrice < freeDeliver ? 50 : 0)}{" "}
               грн.
             </Text>
+          </Flex>{" "}
+          <Flex mt={"10px"} flexDir={"column"} p={5}>
+            <Text>Доставка в г. Днепр :</Text>
+            {DeliverInfo.map((item, index) => (
+              <Flex alignItems={"center"} mt={2} key={index}>
+                <Icon as={FaStar} color={"#c78500"} mx={2} />{" "}
+                <Text fontSize={"sm"}>{item.text}</Text>
+              </Flex>
+            ))}
           </Flex>
         </Flex>
       </Flex>

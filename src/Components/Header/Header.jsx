@@ -63,42 +63,41 @@ const Header = () => {
             mr={10}
           />
         </Flex>
-        {currentLocation.pathname != "/bag" && (
+
+        <Flex
+          alignItems={"center"}
+          justify={"end"}
+          pos={elevateBag && currentLocation.pathname !== "/bag" && "fixed"}
+          top={elevateBag && "0"}
+          right={elevateBag && "20"}
+          backgroundColor={elevateBag && "white"}
+          borderRadius={"8px"}
+          zIndex={1}
+        >
           <Flex
-            alignItems={"center"}
-            justify={"end"}
-            pos={elevateBag && "fixed"}
-            top={elevateBag && "0"}
-            right={elevateBag && "20"}
-            backgroundColor={elevateBag && "white"}
             borderRadius={"8px"}
-            zIndex={1}
+            border={"1px solid black"}
+            p={4}
+            alignItems={"center"}
+            w={"300px"}
+            justifyContent={"center"}
           >
-            <Flex
-              borderRadius={"8px"}
-              border={"1px solid black"}
-              p={4}
-              alignItems={"center"}
-              w={"300px"}
-              justifyContent={"center"}
-            >
-              <Text color="black">Корзина</Text>
-              <Text mx={2} color={"black"}>
-                {totalPrice} UAH.
-              </Text>
-              <Icon
-                as={CiShoppingCart}
-                h={8}
-                w={8}
-                color={"black"}
-                mx={2}
-                onClick={() => router("/bag")}
-                cursor={"pointer"}
-              />
-              <Text>{totalCount}</Text>
-            </Flex>
+            <Text color="black">Корзина</Text>
+            <Text mx={2} color={"black"}>
+              {totalPrice} UAH.
+            </Text>
+            <Icon
+              as={CiShoppingCart}
+              h={8}
+              w={8}
+              color={"black"}
+              mx={2}
+              onClick={() => router("/bag")}
+              cursor={"pointer"}
+            />
+            <Text>{totalCount}</Text>
           </Flex>
-        )}
+        </Flex>
       </Flex>
 
       <Flex justify={"center"}>
