@@ -33,7 +33,7 @@ const ProductStack = ({ title, type }) => {
   const showToast = (isSuccess, item) => {
     const toastSettings = {
       position: "top",
-      duration: 2000,
+      duration: 4000,
       isClosable: true,
     };
 

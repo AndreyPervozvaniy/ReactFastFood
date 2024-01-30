@@ -56,7 +56,15 @@ const Bag = () => {
               }}
               onClick={() => handleClearAllCart()}
             >
-              Очистить корзину
+              <Text
+                style={{
+                  fontWeight: "bold",
+                  color: "red",
+                  textDecorationColor: "blue",
+                }}
+              >
+                Очистить корзину{" "}
+              </Text>
             </Button>
           </Flex>
           {totalCount >= 1 ? (

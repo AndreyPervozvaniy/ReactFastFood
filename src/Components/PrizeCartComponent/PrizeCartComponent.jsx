@@ -18,14 +18,12 @@ const PrizeCartComponent = () => {
           <Text fontWeight={"bold"}>
             ДОБАВЬТЕ ЕЩЕ {pepsiPrize - totalPrice} ГРН
           </Text>
-          <Text>
-            к заказу, чтобы получить бутылку Pepsi 1 литр в подарок ❤️
-          </Text>
+          <Text>к заказу, чтобы получить Pepsi 1 л. в подарок ❤️</Text>
         </Flex>
       ) : totalPrice < rollPrize ? (
         <Flex backgroundColor={"#fdedeb"} flexDir={"column"} p={4}>
           <Text fontWeight={"bold"}>
-            Дарим бутылку Pepsi 1 литр к этой сумме заказа
+            Дарим бутылку Pepsi 1 л. к этой сумме заказа
           </Text>
           <Text>ДОБАВЬТЕ ЕЩЕ {rollPrize - totalPrice} ГРН</Text>
           <Text>чтобы улучшить подарок до ролла Микс лосось ❤️</Text>
