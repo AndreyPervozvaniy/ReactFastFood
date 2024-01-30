@@ -586,3 +586,8 @@ export const bottomDescriptionMainPage = [
     ),
   },
 ];
+export const PATH_PROPS = [
+  {
+    type: "pizza",
+  },
+];

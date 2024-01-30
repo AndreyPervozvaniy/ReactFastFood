@@ -7,17 +7,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { addItems } from "../../Redux/CartSlice";
 import { useToast } from "@chakra-ui/react";
 
-const ProductStack = (props) => {
-  const [dataBack, setDataBack] = useState([]);
-  const [dataLoading, setDataLoading] = useState(true);
+const ProductStack = ({ title, type }) => {
+  const [dataFromApi, setDataFromApi] = useState([]);
+  const [isLoaded, setIsLoaded] = useState(true);
   const toast = useToast();
   const dispatch = useDispatch();
   function getData() {
     axios
       .get("https://65a93323219bfa371868c106.mockapi.io/Sushi")
       .then((res) => {
-        setDataBack(res.data);
-        setDataLoading(false);
+        setDataFromApi(res.data);
+        setIsLoaded(false);
       });
   }
   useEffect(() => {
@@ -68,16 +68,16 @@ const ProductStack = (props) => {
       <Flex flexDir={"column"} justify={"center"} alignItems={"center"}>
         {" "}
         <Text p={5} fontWeight={"bold"} fontSize={"4xl"}>
-          {props.title}{" "}
+          {title}{" "}
         </Text>
         <Container maxW={"7xl"} mt={12}>
           <Flex justify={"center"} flexWrap="wrap" gridGap={2}>
-            {dataLoading
+            {isLoaded
               ? [...new Array(6)].map((_, index) => (
                   <SkeletonProduct key={index} />
                 ))
-              : dataBack
-                  .filter((item) => item.type === props.type)
+              : dataFromApi
+                  .filter((item) => item.type === type)
                   .map((item, id) => (
                     <Flex
                       key={item.id}

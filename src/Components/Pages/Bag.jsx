@@ -11,6 +11,7 @@ import {
   addItems,
   decreaseCount,
 } from "../../Redux/CartSlice";
+import PrizeCartComponent from "../PrizeCartComponent/PrizeCartComponent";
 const Bag = () => {
   const dispatch = useDispatch();
   const { cart, totalCount, totalPrice } = useSelector(
@@ -30,6 +31,7 @@ const Bag = () => {
   };
   const minimalOrder = 250;
   const freeDeliver = 400;
+
   return (
     <Flex flexDir={"column"}>
       <Header />
@@ -58,86 +60,100 @@ const Bag = () => {
               Очистить корзину
             </Button>
           </Flex>
-          <Flex
-            justify={"center"}
-            overflow={"hidden"}
-            overflowY={"auto"}
-            maxH={"400px"}
-            flexWrap={"wrap"}
-          >
-            {totalCount >= 1 ? (
-              cart.map((item, _) => (
-                <Flex key={item.id} flexDir={"column"} w="90%">
-                  <Flex
-                    flexDir={"row"}
-                    alignItems={"center"}
-                    justifyContent={"space-between"}
-                  >
-                    <Image
-                      p={3}
-                      borderRadius={"50%"}
-                      src={item.imageURL}
-                      w={"250px"}
-                      h={"200px"}
-                    />
-                    <Flex flexDir={"column"} justify={"center"}>
-                      <Text>{item.name}</Text>
-                      <Flex
-                        flexDir={"row"}
-                        alignItems={"center"}
-                        justify={"center"}
-                        mt={5}
-                      >
+          {totalCount >= 1 ? (
+            <Flex flexDir={"column"}>
+              <Flex
+                justify={"center"}
+                overflow={"hidden"}
+                overflowY={"auto"}
+                maxH={"400px"}
+                flexWrap={"wrap"}
+              >
+                {cart.map((item, _) => (
+                  <Flex key={item.id} flexDir={"column"} w="90%">
+                    <Flex
+                      flexDir={"row"}
+                      alignItems={"center"}
+                      justifyContent={"space-between"}
+                    >
+                      <Image
+                        p={3}
+                        borderRadius={"50%"}
+                        src={item.imageURL}
+                        w={"250px"}
+                        h={"200px"}
+                      />
+                      <Flex flexDir={"column"} justify={"center"}>
+                        <Text>{item.name}</Text>
+                        <Flex
+                          flexDir={"row"}
+                          alignItems={"center"}
+                          justify={"center"}
+                          mt={5}
+                        >
+                          <Button
+                            variant={"outline"}
+                            onClick={() => decreaseCountItem(item)}
+                            border={"1px solid black"}
+                            _hover={{ backgroundColor: "transparent" }}
+                            isDisabled={item.count === 1}
+                            w="30px"
+                          >
+                            -
+                          </Button>{" "}
+                          <Text mx={4} w="30px" textAlign={"center"}>
+                            {item.count}
+                          </Text>{" "}
+                          <Button
+                            variant={"outline"}
+                            onClick={() => addItemInCart(item)}
+                            border={"1px solid black"}
+                            isDisabled={item.count === 9}
+                            _hover={{ backgroundColor: "transparent" }}
+                            w="30px"
+                          >
+                            +
+                          </Button>
+                        </Flex>
+                      </Flex>
+                      <Flex flexDir={"column"}>
                         <Button
                           variant={"outline"}
-                          onClick={() => decreaseCountItem(item)}
-                          border={"1px solid black"}
+                          onClick={() => removeItemFromCart(item.id)}
+                          border={"none"}
                           _hover={{ backgroundColor: "transparent" }}
-                          isDisabled={item.count === 1}
-                          w="30px"
                         >
-                          -
-                        </Button>{" "}
-                        <Text mx={4} w="30px" textAlign={"center"}>
-                          {item.count}
-                        </Text>{" "}
-                        <Button
-                          variant={"outline"}
-                          onClick={() => addItemInCart(item)}
-                          border={"1px solid black"}
-                          isDisabled={item.count === 9}
-                          _hover={{ backgroundColor: "transparent" }}
-                          w="30px"
-                        >
-                          +
+                          <Icon as={CiTrash} />
                         </Button>
+
+                        <Text>{item.cost} грн.</Text>
                       </Flex>
                     </Flex>
-                    <Flex flexDir={"column"}>
-                      <Button
-                        variant={"outline"}
-                        onClick={() => removeItemFromCart(item.id)}
-                        border={"none"}
-                        _hover={{ backgroundColor: "transparent" }}
-                      >
-                        <Icon as={CiTrash} />
-                      </Button>
-
-                      <Text>{item.cost} грн.</Text>
-                    </Flex>
                   </Flex>
-                </Flex>
-              ))
-            ) : (
-              <Flex justifyContent={"center"} alignItems={"center"}>
-                <Image src={empryCart} />
+                ))}
               </Flex>
-            )}{" "}
-          </Flex>
-          <Flex mt={10} flexDir={"row"} justifyContent={"space-between"}>
+              <PrizeCartComponent />
+            </Flex>
+          ) : (
+            <Flex justifyContent={"center"} alignItems={"center"}>
+              <Image src={empryCart} />
+            </Flex>
+          )}
+          <Flex
+            borderTop={"1px solid #ccc"}
+            mt={10}
+            flexDir={"row"}
+            justifyContent={"space-between"}
+            alignItems={"center"}
+          >
             <Text>Доставка </Text>
             {totalPrice < minimalOrder ? (
-              <Text>Доставка невозможна, минимальный заказ 250 грн </Text>
+              <Flex flexDir={"column"} textAlign={"center"}>
+                <Text fontWeight={"bold"}>
+                  К сожалению, доставка невозможна
+                </Text>{" "}
+                <Text fontSize={"14px"}>(минимальный заказ - 250 грн.)</Text>{" "}
+              </Flex>
             ) : totalPrice <= freeDeliver ? (
               <Text>Доставка 50 грн</Text>
             ) : (
