@@ -30,8 +30,13 @@ const Header = () => {
 
   return (
     <Flex w={"100%"} background={"white"} flexDir={"column"}>
-      <Flex backgroundColor={"#decb6a"} h={"30px"} justify={"center"}>
-        <Text> Тут будет хуевар! Да-да, не удивляйтесь!</Text>
+      <Flex
+        backgroundColor={"#decb6a"}
+        h={"30px"}
+        justify={"center"}
+        alignItems={"center"}
+      >
+        <Text> Тут будет хуевбар! Да-да, не удивляйтесь!</Text>
       </Flex>
       <Flex justify={"space-around"}>
         <Flex flexDir={"column"} justifyContent={"center"}>
@@ -73,6 +78,8 @@ const Header = () => {
           backgroundColor={elevateBag && "white"}
           borderRadius={"8px"}
           zIndex={1}
+          onClick={() => router("/bag")}
+          cursor={"pointer"}
         >
           <Flex
             borderRadius={"8px"}
@@ -86,15 +93,7 @@ const Header = () => {
             <Text mx={2} color={"black"}>
               {totalPrice} UAH.
             </Text>
-            <Icon
-              as={CiShoppingCart}
-              h={8}
-              w={8}
-              color={"black"}
-              mx={2}
-              onClick={() => router("/bag")}
-              cursor={"pointer"}
-            />
+            <Icon as={CiShoppingCart} h={8} w={8} color={"black"} mx={2} />
             <Text>{totalCount}</Text>
           </Flex>
         </Flex>

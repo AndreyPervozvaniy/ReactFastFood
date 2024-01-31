@@ -54,18 +54,20 @@ const Bag = () => {
             <Text fontWeight={"bold"} fontSize={"3xl"} textAlign={"start"}>
               Ваш заказ
             </Text>
-            <Button
-              variant={"outline"}
-              _hover={{
-                backgroundColor: "transparent",
-                textDecor: "underline",
-              }}
-              onClick={() => handleClearAllCart()}
-            >
-              <Text fontWeight={"bold"} color={"red"}>
-                Очистить корзину{" "}
-              </Text>
-            </Button>
+            {totalCount >= 1 && (
+              <Button
+                variant={"outline"}
+                _hover={{
+                  backgroundColor: "transparent",
+                  textDecor: "underline",
+                }}
+                onClick={() => handleClearAllCart()}
+              >
+                <Text fontWeight={"bold"} color={"red"}>
+                  Очистить корзину{" "}
+                </Text>
+              </Button>
+            )}
           </Flex>
           {totalCount >= 1 ? (
             <Flex flexDir={"column"}>
@@ -153,43 +155,60 @@ const Bag = () => {
               </Button>
             </Flex>
           )}
-          <Flex
-            borderTop={"1px solid #ccc"}
-            mt={10}
-            flexDir={"row"}
-            justifyContent={"space-between"}
-            alignItems={"center"}
-          >
-            <Text>Доставка :</Text>
-            {totalPrice < minimalOrder ? (
-              <Flex flexDir={"column"} textAlign={"center"}>
-                <Text fontWeight={"bold"}>
-                  К сожалению, доставка невозможна
-                </Text>{" "}
-                <Text fontSize={"14px"}>(минимальный заказ - 250 грн.)</Text>{" "}
-              </Flex>
-            ) : totalPrice <= freeDeliver ? (
-              <Text>Доставка 50 грн</Text>
-            ) : (
-              <Text fontWeight="bold" color="green">
-                Бесплатно!
-              </Text>
-            )}
-          </Flex>{" "}
-          <Flex
-            mt={10}
-            flexDir={"row"}
-            justifyContent={"space-between"}
-            alignItems={"center"}
-          >
-            <Text fontWeight={"bold"}>ОБЩАЯ СТОИМОСТЬ : </Text>
-            <Text fontWeight={"bold"} fontSize={"3xl"} textDecor={"underline"}>
-              {totalPrice < minimalOrder
-                ? totalPrice
-                : totalPrice + (totalPrice < freeDeliver ? 50 : 0)}{" "}
-              грн.
-            </Text>
-          </Flex>{" "}
+          {totalCount >= 1 && (
+            <Flex flexDir={"column"}>
+              <Flex
+                borderTop={"1px solid #ccc"}
+                mt={10}
+                flexDir={"row"}
+                justifyContent={"space-between"}
+                alignItems={"center"}
+              >
+                <Text mt={2}>Доставка :</Text>
+                {totalPrice < minimalOrder ? (
+                  <Flex flexDir={"column"} textAlign={"center"}>
+                    <Text fontWeight={"bold"}>
+                      К сожалению, доставка невозможна
+                    </Text>{" "}
+                    <Text fontSize={"14px"}>
+                      (минимальный заказ - 250 грн.)
+                    </Text>{" "}
+                  </Flex>
+                ) : totalPrice <= freeDeliver ? (
+                  <Flex flexDir={"column"} textAlign={"center"}>
+                    <Text fontWeight={"bold"}>Доставка 50 грн</Text>{" "}
+                    <Text fontSize={"14px"}>
+                      (бесплатная от 400 грн. остаток :{" "}
+                      {freeDeliver - totalPrice} грн.)
+                    </Text>{" "}
+                  </Flex>
+                ) : (
+                  <Text fontWeight="bold" color="green">
+                    Бесплатно!
+                  </Text>
+                )}
+              </Flex>{" "}
+              <Flex
+                mt={10}
+                flexDir={"row"}
+                justifyContent={"space-between"}
+                alignItems={"center"}
+              >
+                <Text fontWeight={"bold"}>ОБЩАЯ СТОИМОСТЬ : </Text>
+                <Text
+                  fontWeight={"bold"}
+                  fontSize={"3xl"}
+                  textDecor={"underline"}
+                >
+                  {totalPrice < minimalOrder
+                    ? totalPrice
+                    : totalPrice + (totalPrice < freeDeliver ? 50 : 0)}{" "}
+                  грн.
+                </Text>
+              </Flex>{" "}
+            </Flex>
+          )}
+
           <Flex mt={"10px"} flexDir={"column"} p={5}>
             <Text>Доставка в г. Днепр :</Text>
             {DeliverInfo.map((item, index) => (
