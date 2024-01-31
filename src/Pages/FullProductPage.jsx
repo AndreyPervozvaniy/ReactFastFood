@@ -56,8 +56,8 @@ const FullProductPage = () => {
         console.log("Ошибка в получение данных");
       }
     }
-    fetchProduct(); // eslint-disable-next-line
-  }, []);
+    fetchProduct();
+  }, [id]);
   const addItemInCart = (product) => {
     dispatch(addItems(product));
     showToast(countChecker(product.id), product);
