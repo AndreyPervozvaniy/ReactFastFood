@@ -6,15 +6,15 @@ import SkeletonReview from "../Skeleton/SkeletonReview";
 const ReviewComponent = (props) => {
   const [review, setReview] = useState([]);
   const [reviewLoading, setReviewLoading] = useState(true);
+  function getData() {
+    axios
+      .get("https://659fbce75023b02bfe8a5607.mockapi.io/ReveiwData")
+      .then((res) => {
+        setReview(res.data);
+        setReviewLoading(false);
+      });
+  }
   useEffect(() => {
-    function getData() {
-      axios
-        .get("https://659fbce75023b02bfe8a5607.mockapi.io/ReveiwData")
-        .then((res) => {
-          setReview(res.data);
-          setReviewLoading(false);
-        });
-    }
     getData();
   }, []);
   return (
@@ -30,7 +30,7 @@ const ReviewComponent = (props) => {
               ))
             : review
                 .filter((item) => item.page === props.page)
-                .map((item, index) => (
+                .map((item) => (
                   <Flex
                     key={item.id}
                     w={"500px"}
@@ -49,7 +49,7 @@ const ReviewComponent = (props) => {
                         <Text
                           color={"blue"}
                           textDecor={"underline"}
-                          cursor={"pointer"}
+                          cursor={"default"}
                         >
                           {item.dish}
                         </Text>

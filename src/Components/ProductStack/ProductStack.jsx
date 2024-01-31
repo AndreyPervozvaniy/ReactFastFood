@@ -7,10 +7,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { addItems } from "../../Redux/CartSlice";
 import { useToast } from "@chakra-ui/react";
 import { fetchData } from "../../Redux/DataSlice";
+import { useNavigate } from "react-router-dom";
 const ProductStack = ({ title, type }) => {
   const toast = useToast();
   const dispatch = useDispatch();
-
+  const router = useNavigate();
   const { cart } = useSelector((state) => state.CartSlice);
   const { dataFromServer, status } = useSelector((state) => state.DataSlice);
   const countChecker = (itemId) => {
@@ -99,7 +100,7 @@ const ProductStack = ({ title, type }) => {
                               as={FaStar}
                               color={
                                 index < item.starCount ? "#c78500" : "gray"
-                              } // Используйте серый цвет для незакрашенных звезд
+                              }
                               h={6}
                               w={6}
                             />
@@ -111,6 +112,7 @@ const ProductStack = ({ title, type }) => {
                             flexDir={"column"}
                             justify={"center"}
                             alignItems={"center"}
+                            onClick={() => router(`/fullproduct/${item.id}`)}
                           >
                             <Image opacity={"20%"} src={item.imageURL} />
                             <Text

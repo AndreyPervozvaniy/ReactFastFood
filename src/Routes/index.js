@@ -8,6 +8,7 @@ import Sets from "../Pages/Sets";
 import Soups from "../Pages/Soups";
 import Burgers from "../Pages/Burger";
 import Pizza from "../Pages/Pizza";
+import FullProductPage from "../Pages/FullProductPage";
 export const PATHS = {
   MAIN: "/",
   SUSHI: "/sushi",
@@ -19,6 +20,7 @@ export const PATHS = {
   SOUPS: "/soups",
   BURGERS: "/burgers",
   PIZZA: "/pizza",
+  FULLPRODUCT: "/fullproduct/:id",
 };
 export const routes = [
   {
@@ -60,5 +62,9 @@ export const routes = [
   {
     path: PATHS.BAG,
     element: Bag,
+  },
+  {
+    path: PATHS.FULLPRODUCT,
+    element: FullProductPage,
   },
 ];
