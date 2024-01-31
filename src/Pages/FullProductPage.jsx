@@ -11,6 +11,7 @@ import { useSelector } from "react-redux";
 import { useToast } from "@chakra-ui/react";
 import { addItems } from "../Redux/CartSlice";
 import { FaStar } from "react-icons/fa";
+import { Spinner } from "@chakra-ui/react";
 const FullProductPage = () => {
   const { id } = useParams();
   const toast = useToast();
@@ -63,7 +64,17 @@ const FullProductPage = () => {
     showToast(countChecker(product.id), product);
   };
   if (!product) {
-    return <Text>Loading...</Text>;
+    return (
+      <Flex justifyContent={"center"} alignItems={"center"} h="100vh">
+        <Spinner
+          thickness="4px"
+          speed="0.65s"
+          emptyColor="transparent"
+          color="blue.500"
+          size="xl"
+        />
+      </Flex>
+    );
   }
   return (
     <Flex flexDir={"column"}>

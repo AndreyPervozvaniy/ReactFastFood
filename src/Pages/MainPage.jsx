@@ -19,11 +19,11 @@ import Elevator from "../Components/ElevatorComponent/Elevator";
 import ProductStack from "../Components/ProductStack/ProductStack";
 const MainPage = () => {
   return (
-    <Flex flexDirection={"column"}>
+    <>
       <BackgroundWallpaper />
       <Elevator />
       <Header />
-      <Flex flexDir={"column"}>
+      <Flex flexDir={"column"} pt={{ base: "90px", lg: "0" }}>
         <CarouselTemplate />
         <Flex
           textAlign={"center"}
@@ -31,8 +31,7 @@ const MainPage = () => {
           p={"5"}
           flexDir={"column"}
         >
-          <Text fontWeight={"bold"} fontSize={"4xl"}>
-            {" "}
+          <Text fontWeight={"bold"} fontSize={{ base: "2xl", lg: "4xl" }}>
             Вкусные новинки
           </Text>
           <ProductStack type="sets" />
@@ -249,7 +248,7 @@ const MainPage = () => {
       </Flex>
 
       <Footer />
-    </Flex>
+    </>
   );
 };
 

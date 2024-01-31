@@ -6,14 +6,14 @@ const Footer = () => {
     <Flex
       backgroundColor={"white"}
       w={"100%"}
-      h={"100px"}
+      h={"80px"}
       bottom={"0"}
       mt={"20px"}
       borderTop={"1px solid #ccc"}
     >
       <Flex justify={"space-between"} flexDir={"row"} w={"100%"}>
         <Text w={"30%"}>Страницы </Text>{" "}
-        <Image w={"40%"} src={Logo} h={"200px"} />
+        <Image w={"40%"} src={Logo} h={"160px"} />
         <Text w={"30%"}>Меню</Text>
       </Flex>
     </Flex>
