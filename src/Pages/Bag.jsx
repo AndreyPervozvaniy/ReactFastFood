@@ -4,7 +4,7 @@ import Header from "../Components/Header/Header";
 import Footer from "../Components/Footer/Footer";
 import { useDispatch, useSelector } from "react-redux";
 import { CiTrash } from "react-icons/ci";
-import empryCart from "../Assets/Image/emptyCart.png";
+
 import carted from "../Assets/Image/cart-empty1.jpg";
 import {
   clearCart,
