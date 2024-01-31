@@ -16,8 +16,7 @@ import { useNavigate } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
 import { DeliverInfo } from "../Utills/Utills";
 import Elevator from "../Components/ElevatorComponent/Elevator";
-import FormAuth from "../Components/FormAuth/FormAuth";
-import MyForm from "../Components/FormAuth/FormAuth";
+import { FormAuth } from "../Components/FormAuth/FormAuth";
 const Bag = () => {
   const dispatch = useDispatch();
   const router = useNavigate();
@@ -51,7 +50,7 @@ const Bag = () => {
 
           <Flex border="1px solid black" w={"500px"} h={"800px"}>
             {" "}
-            <MyForm />
+            <FormAuth />
           </Flex>
         </Flex>
 
