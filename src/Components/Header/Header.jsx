@@ -16,12 +16,14 @@ import {
   DrawerHeader,
   DrawerBody,
 } from "@chakra-ui/react";
+import { useCallPhoneNumber } from "../../Hooks/Hooks";
 const Header = () => {
   const { totalPrice, totalCount } = useSelector((state) => state.CartSlice);
   const router = useNavigate();
   const currentLocation = useLocation();
   const [elevateBag, setElevateBag] = useState(false);
   const { onClose, onOpen, isOpen } = useDisclosure();
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollThreshold = 200;
@@ -39,6 +41,10 @@ const Header = () => {
     };
   }, []);
 
+  const callPhoneNumber = (phoneNumber) => {
+    const telLink = `tel:${phoneNumber}`;
+    window.location.href = telLink;
+  };
   return (
     <Flex>
       <Flex w={"100%"} background={"white"} flexDir={"column"}>
@@ -63,11 +69,15 @@ const Header = () => {
                 Мы работаем с 10-00 до 21-00
               </Text>
             </Flex>
-            <Flex alignItems={"center"} justify={"start"}>
+            <Flex
+              alignItems={"center"}
+              justify={"start"}
+              onClick={() => callPhoneNumber("7500")}
+              cursor={"pointer"}
+            >
               <Icon as={IoMdCall} h={8} w={8} color={"black"} mx={5} />
               <Text
                 color={"#ccc"}
-                cursor={"pointer"}
                 transition={"ease 1s"}
                 _hover={{ color: "black" }}
               >
