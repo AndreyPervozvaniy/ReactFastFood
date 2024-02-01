@@ -16,7 +16,7 @@ import {
   DrawerHeader,
   DrawerBody,
 } from "@chakra-ui/react";
-import { useCallPhoneNumber } from "../../Hooks/Hooks";
+
 const Header = () => {
   const { totalPrice, totalCount } = useSelector((state) => state.CartSlice);
   const router = useNavigate();
