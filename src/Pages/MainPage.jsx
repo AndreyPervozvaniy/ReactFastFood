@@ -8,7 +8,6 @@ import {
   PartnersData,
   BenefitData,
 } from "../Utills/Utills";
-
 import { Container, Icon, Flex, Image, Text, Box } from "@chakra-ui/react";
 import Logo from "../Assets/Image/Logo1.png";
 import AccordionTemplate from "../Components/MainPageContent/AccordionTemplate";

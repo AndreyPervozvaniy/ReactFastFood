@@ -49,7 +49,12 @@ const Bag = () => {
             Детали оплаты
           </Text>
 
-          <Flex border="1px solid black" w={"500px"} h={"800px"}></Flex>
+          <Flex border="1px solid black" w={"500px"} h={"800px"}>
+            {" "}
+            <Text fontWeight={"bold"} fontSize={"3xl"} textAlign={"start"}>
+              Тут будут формы для оформления доставки!
+            </Text>
+          </Flex>
         </Flex>
 
         <Flex mt={"10px"} flexDir={"column"} w={"50%"}>

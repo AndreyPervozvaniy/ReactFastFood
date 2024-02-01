@@ -55,7 +55,7 @@ const Header = () => {
           alignItems={"center"}
           display={{ base: "none", lg: "flex" }}
         >
-          <Text> Тут будет хуевбар! Да-да, не удивляйтесь!</Text>
+          <Text> </Text>
         </Flex>
         <Flex justify={"space-around"}>
           <Flex
