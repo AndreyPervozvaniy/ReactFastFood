@@ -23,7 +23,7 @@ const MainPage = () => {
       <BackgroundWallpaper />
       <Elevator />
       <Header />
-      <Flex flexDir={"column"} pt={{ base: "90px", lg: "0" }}>
+      <Flex flexDir={"column"}>
         <CarouselTemplate />
         <Flex
           textAlign={"center"}
