@@ -8,7 +8,15 @@ import {
   PartnersData,
   BenefitData,
 } from "../Utills/Utills";
-import { Container, Icon, Flex, Image, Text, Box } from "@chakra-ui/react";
+import {
+  Container,
+  Icon,
+  Flex,
+  Image,
+  Text,
+  Box,
+  Stack,
+} from "@chakra-ui/react";
 import Logo from "../Assets/Image/Logo1.png";
 import AccordionTemplate from "../Components/MainPageContent/AccordionTemplate";
 import CarouselTemplate from "../Components/MainPageContent/Carousel";
@@ -50,7 +58,7 @@ const MainPage = () => {
             flexWrap={"wrap"}
           >
             {PartnersData.map((item, index) => (
-              <Flex key={index}>
+              <Flex key={index} p={"5%"}>
                 <Image src={item.image} />
               </Flex>
             ))}
@@ -65,7 +73,7 @@ const MainPage = () => {
             my={-4}
             fontWeight={"bold"}
             borderRadius={"5px"}
-            fontSize={"xl"}
+            fontSize={{ base: "small", xl: "large" }}
             px={4}
           >
             Доставка в каждом городе
@@ -101,7 +109,7 @@ const MainPage = () => {
                   alignItems={"center"}
                   maxW={{ base: "full", md: "275px", lg: "275px" }}
                 >
-                  <Box borderRadius={"50%"} backgroundColor={item.color} p={2}>
+                  <Box borderRadius={"95%"} backgroundColor={item.color} p={2}>
                     <Icon
                       as={item.icon}
                       w={"120px"}
@@ -143,103 +151,114 @@ const MainPage = () => {
             роллы, супы, пицца и суши - доставка по Харькову всего нашего меню в
             считанные минуты!
           </Text>
-          <Container maxW="7xl" mt={10} p={2} flexWrap={"wrap"}>
-            <Flex flexDir={"column"}>
-              {" "}
-              {AboutData.map((item, index) => (
-                <Flex
-                  key={index}
-                  mt={5}
-                  flexWrap={"wrap"}
-                  alignItems={"center"}
-                  justify={"center"}
-                >
-                  <Flex flexDir={"column"} mr={"5px"}>
-                    <Text fontWeight={"bold"} fontSize={"3xl"}>
-                      {item.title}
-                    </Text>
-                    <Box
-                      border={"1px solid blue"}
-                      w={100}
-                      h={1}
-                      backgroundColor={"blue"}
-                      mt={5}
-                    ></Box>
-                    <Text
-                      mt={5}
-                      fontWeight={"bold"}
-                      maxW={{ base: "full", md: "2xl", lg: "3xl" }}
-                    >
-                      {item.text}
-                    </Text>
-                  </Flex>
-
-                  <Image
-                    src={item.image}
-                    w={"md"}
-                    h={"md"}
-                    borderRadius={"15px"}
-                  />
-                </Flex>
-              ))}
-            </Flex>
-          </Container>
+          {AboutData.map((item, index) => (
+            <Container maxW={"7xl"} key={index} padding={2}>
+              <Stack
+                textAlign={{
+                  base: "center",
+                  sm: "center",
+                  md: "center",
+                  lg: "left",
+                }}
+                align={"center"}
+                justify="center"
+                spacing={{ base: 8, md: 10 }}
+                mt={{ base: 24, md: 28 }}
+                direction={{ base: "column", md: "column", lg: "row" }}
+              >
+                <Stack flex={1} spacing={{ base: 5, md: 10 }}>
+                  <Text
+                    fontWeight={"bold"}
+                    fontSize={{ base: "xl", md: "2xl", lg: "3xl" }}
+                  >
+                    {item.title}
+                  </Text>
+                  <Text fontWeight={"bold"}>{item.text}</Text>
+                </Stack>
+                <Flex flex={1} w={"full"} flexDir={"column"}>
+                  <Box
+                    height={"400px"}
+                    rounded={"2xl"}
+                    boxShadow={"2xl"}
+                    width={"100%"}
+                    overflow={"hidden"}
+                  >
+                    <Image
+                      w={"100%"}
+                      h={"100%"}
+                      objectFit="cover"
+                      src={item.image}
+                    />
+                  </Box>{" "}
+                </Flex>{" "}
+              </Stack>{" "}
+            </Container>
+          ))}
         </Flex>{" "}
         <Flex
           justify={"center"}
           alignItems={"center"}
           flexDir={"column"}
-          py={"5%"}
+          mt={10}
         >
           <Text
             fontWeight={"extrabold"}
             fontSize={"3xl"}
             textAlign={"center"}
             w={"90%"}
-            my={5}
+            mt={5}
           >
             Отличный выбор блюд японской, европейской и американской кухни с
             доставкой только в Burger Lord
           </Text>
           <Flex flexDir={"column"} w={"100%"}>
             {MenuData.map((item, index) => (
-              <Flex key={index} justify={"center"} flexDir={"row"}>
+              <Flex
+                key={index}
+                justify={"center"}
+                mt={10}
+                borderRadius={"20px"}
+              >
                 <Flex
-                  w={"95%"}
-                  h={"400px"}
-                  my={5}
-                  bgPosition={"-100px"}
-                  bgImage={item.image}
-                  borderRadius={"10px"}
-                  justifyContent={"end"}
-                  textAlign={"center"}
+                  backgroundColor={"#231f20"}
+                  w={"90%"}
+                  justifyContent={"center"}
+                  borderRadius={"20px"}
+                  flexDir={{ base: "column", lg: "row" }}
                 >
-                  {" "}
                   <Flex
-                    flexDirection={"column"}
-                    pos={"absolute"}
-                    color={"white"}
-                    fontWeight={"bold"}
-                    backgroundColor={"#231f20"}
-                    w={"500px"}
-                    h={"400px"}
+                    w={{ base: "100%", lg: "40%" }}
                     justify={"center"}
+                    alignItems={"center"}
+                    borderTopRadius={{ base: "20px", lg: "0" }}
                   >
-                    <Text textAlign={"start"} fontSize={"2xl"}>
+                    <Image
+                      borderLeftRadius={"20px"}
+                      src={item.image}
+                      h={"300px"}
+                    />
+                  </Flex>
+
+                  <Flex
+                    flex={{ base: "0", md: "1", lg: "1" }}
+                    h="300px"
+                    backgroundColor={"#231f20"}
+                    justify={"center"}
+                    flexDir={"column"}
+                    borderRadius={"20px"}
+                    textAlign={{ base: "center", lg: "start" }}
+                    w={"100%"}
+                    p={2}
+                  >
+                    <Text mt={"10px"} color={"white"}>
                       {item.title}
-                    </Text>{" "}
-                    <Box
-                      w={"100px"}
-                      h={"5px"}
-                      border={"1px solid blue"}
-                      backgroundColor={"blue"}
-                    ></Box>
-                    <Text textAlign={"start"} fontSize={"lg"}>
-                      {" "}
+                    </Text>
+
+                    <Text mt={"10px"} color={"white"}>
                       {item.text}
                     </Text>
                   </Flex>
-                </Flex>{" "}
+                </Flex>
               </Flex>
             ))}
           </Flex>

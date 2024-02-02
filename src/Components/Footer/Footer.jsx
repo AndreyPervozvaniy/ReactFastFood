@@ -50,7 +50,13 @@ const Footer = () => {
             </Link>
           </Flex>
         </Flex>
-        <Flex justify={"center"} mt={5} flexWrap={"wrap"}>
+        <Flex
+          justify={"center"}
+          mt={5}
+          textAlign={"center"}
+          flexWrap={"wrap"}
+          p={4}
+        >
           <Text>© 2024 Все права защищены - burger-lord Днепр.</Text>
         </Flex>
       </Flex>

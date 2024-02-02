@@ -90,21 +90,28 @@ const ProductStack = ({ title, type }) => {
                         onMouseLeave={() => setIsHovered(null)}
                         cursor={"pointer"}
                       >
-                        <Text fontWeight={"bold"} fontSize={"2xl"}>
-                          {item.name}
-                        </Text>
-                        <Flex>
-                          {[...Array(5)].map((_, index) => (
-                            <Icon
-                              key={index}
-                              as={FaStar}
-                              color={
-                                index < item.starCount ? "#c78500" : "gray"
-                              }
-                              h={6}
-                              w={6}
-                            />
-                          ))}
+                        <Flex
+                          flexDir={"column"}
+                          alignItems={"start"}
+                          justify={"start"}
+                        >
+                          {" "}
+                          <Text fontWeight={"bold"} fontSize={"2xl"}>
+                            {item.name}
+                          </Text>
+                          <Flex>
+                            {[...Array(5)].map((_, index) => (
+                              <Icon
+                                key={index}
+                                as={FaStar}
+                                color={
+                                  index < item.starCount ? "#c78500" : "gray"
+                                }
+                                h={6}
+                                w={6}
+                              />
+                            ))}
+                          </Flex>
                         </Flex>
 
                         {isHovered === item.id ? (
@@ -112,14 +119,19 @@ const ProductStack = ({ title, type }) => {
                             flexDir={"column"}
                             justify={"center"}
                             alignItems={"center"}
+                            flexWrap={"wrap"}
                             onClick={() => router(`/fullproduct/${item.id}`)}
+                            pos={"relative"}
                           >
                             <Image opacity={"20%"} src={item.imageURL} />
                             <Text
                               pos={"absolute"}
                               fontWeight={"bold"}
                               flexWrap={"wrap"}
-                              w={"500px"}
+                              fontSize={{ base: "sm", lg: "xl" }}
+                              maxWidth="100%"
+                              overflow="hidden"
+                              textOverflow="ellipsis"
                             >
                               {item.consist}
                             </Text>

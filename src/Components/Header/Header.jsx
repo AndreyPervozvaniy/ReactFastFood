@@ -4,7 +4,7 @@ import Logo from "../../Assets/Image/Logo1.png";
 import { IoMdTime, IoMdCall } from "react-icons/io";
 import { CiShoppingCart } from "react-icons/ci";
 import { useLocation, useNavigate } from "react-router-dom";
-
+import { NavBarData } from "../../Utills/Utills";
 import { useSelector } from "react-redux";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useDisclosure } from "@chakra-ui/react";
@@ -16,7 +16,6 @@ import {
   DrawerHeader,
   DrawerBody,
 } from "@chakra-ui/react";
-import NavBarComponent from "../NavBarComponent/NavBarComponent";
 
 const Header = () => {
   const { totalPrice, totalCount } = useSelector((state) => state.CartSlice);
@@ -139,7 +138,7 @@ const Header = () => {
         </Flex>
 
         <Flex justify={"center"} display={{ base: "none", lg: "flex" }}>
-          <NavBarComponent
+          <Flex
             flexDir={"row"}
             justifyContent={"space-between"}
             borderTop={"3px solid #ccc"}
@@ -148,23 +147,79 @@ const Header = () => {
             _hover={{ borderColor: "black" }}
             alignItems={"center"}
             h={100}
-          />
+          >
+            {NavBarData.map((item, index) => (
+              <Flex
+                key={index}
+                borderBottom={
+                  currentLocation.pathname === item.router
+                    ? "3px solid green"
+                    : "3px solid transparent"
+                }
+                justify={"center"}
+                alignItems={"center"}
+                onClick={() => router(item.router)}
+                _hover={{
+                  backgroundColor: "#ccc",
+                  borderBottom: "3px solid red",
+                }}
+                h={"100%"}
+                overflow={"hidden"}
+                w={"100%"}
+                cursor={"pointer"}
+                flexDir={"column"}
+              >
+                {" "}
+                <Icon as={item.icon} h={12} w={12} />
+                <Text fontWeight={"bold"}>{item.text}</Text>
+              </Flex>
+            ))}
+          </Flex>
         </Flex>
       </Flex>
-      <Drawer placement="left" onClose={onClose} isOpen={isOpen}>
+      <Drawer placement="left" onClose={onClose} isOpen={isOpen} size={"full"}>
         <DrawerOverlay>
           <DrawerContent>
             <DrawerCloseButton />
             <DrawerHeader>Меню</DrawerHeader>
-            <DrawerBody
-              bgColor={"white"}
-              h={"100%"}
-              textAlign={"center"}
-              padding={"7%"}
-              fontSize={"lg"}
-              overflowY="auto"
-              fontWeight={"bold"}
-            ></DrawerBody>
+            <DrawerBody bgColor={"white"} overflowY="auto" fontWeight={"bold"}>
+              <Flex
+                flexDir={"column"}
+                justifyContent={"start"}
+                w={"100%"}
+                alignItems={"center"}
+              >
+                {NavBarData.map((item, index) => (
+                  <Flex
+                    mt={2}
+                    key={index}
+                    borderBottom={
+                      currentLocation.pathname === item.router
+                        ? "3px solid green"
+                        : "3px solid transparent"
+                    }
+                    justify={"start"}
+                    alignItems={"center"}
+                    onClick={() => router(item.router)}
+                    _hover={{
+                      backgroundColor: "#ccc",
+                      borderBottom: "3px solid red",
+                    }}
+                    h={"100%"}
+                    overflow={"hidden"}
+                    w={"100%"}
+                    cursor={"pointer"}
+                    flexDir={"row"}
+                  >
+                    {" "}
+                    <Icon as={item.icon} h={8} w={8} />
+                    <Text ml={2} fontWeight={"bold"}>
+                      {item.text}
+                    </Text>
+                  </Flex>
+                ))}
+              </Flex>
+            </DrawerBody>
           </DrawerContent>
         </DrawerOverlay>
       </Drawer>
