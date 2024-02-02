@@ -94,6 +94,7 @@ const ProductStack = ({ title, type }) => {
                           flexDir={"column"}
                           alignItems={"start"}
                           justify={"start"}
+                          onClick={() => router(`/fullproduct/${item.id}`)}
                         >
                           {" "}
                           <Text fontWeight={"bold"} fontSize={"2xl"}>

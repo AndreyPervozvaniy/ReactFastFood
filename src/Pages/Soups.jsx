@@ -11,7 +11,7 @@ import BottomProductPart from "../Components/BottomProductPart/BottomProductPart
 const Soups = () => {
   return (
     <Flex flexDir={"column"}>
-      <BackgroundWallpaper />
+      {/* <BackgroundWallpaper /> */}
       <Elevator />
       <Header />
       <ProductStack title="ВКУСНЕЙШИЕ СУПЫ В ДНЕПРЕ" type="soups" />

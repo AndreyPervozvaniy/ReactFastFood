@@ -11,7 +11,7 @@ import BottomProductPart from "../Components/BottomProductPart/BottomProductPart
 const Kebab = () => {
   return (
     <Flex flexDir={"column"}>
-      <BackgroundWallpaper />
+      {/* <BackgroundWallpaper /> */}
       <Elevator />
       <Header />
       <ProductStack title="ВКУСНЕЙШАЯ ШАУРМА В ДНЕПРЕ" type="kebab" />

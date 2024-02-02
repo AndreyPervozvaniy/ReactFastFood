@@ -1,13 +1,13 @@
 import { Flex, Text, Icon, Image } from "@chakra-ui/react";
 import React, { useEffect } from "react";
 import { bottomDescriptionEachPage } from "../../Utills/Utills";
-
+import { useNavigate } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { fetchData } from "../../Redux/DataSlice";
 const BottomProductPart = ({ page }) => {
   const { dataFromServer } = useSelector((state) => state.DataSlice);
-
+  const router = useNavigate();
   useEffect(() => {
     fetchData();
     console.log("reloaded");
@@ -57,6 +57,8 @@ const BottomProductPart = ({ page }) => {
                     alignItems={"center"}
                     justifyContent={"space-between"}
                     borderTop={"1px solid #ccc"}
+                    onClick={() => router(`/fullproduct/${item.id}`)}
+                    cursor={"pointer"}
                   >
                     <Flex flexDir={"column"}>
                       <Text fontWeight={"bold"}>{item.name}</Text>{" "}

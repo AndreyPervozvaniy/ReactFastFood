@@ -10,7 +10,7 @@ import BottomProductPart from "../Components/BottomProductPart/BottomProductPart
 const Rolls = () => {
   return (
     <Flex flexDir={"column"}>
-      <BackgroundWallpaper />
+      {/* <BackgroundWallpaper /> */}
       <Header />
       <Elevator />
       <ProductStack title="ВКУСНЕЙШИЕ РОЛЛЫ В ДНЕПРЕ" type="rolls" />

@@ -78,7 +78,7 @@ const FullProductPage = () => {
   }
   return (
     <Flex flexDir={"column"}>
-      <BackgroundWallpaper />
+      {/* <BackgroundWallpaper /> */}
       <Elevator />
       <Header />
       <Flex mt="10px" flexDir={"row"} justifyContent={"center"}>

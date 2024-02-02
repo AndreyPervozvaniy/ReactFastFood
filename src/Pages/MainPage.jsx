@@ -27,7 +27,7 @@ import ProductStack from "../Components/ProductStack/ProductStack";
 const MainPage = () => {
   return (
     <>
-      <BackgroundWallpaper />
+      {/* <BackgroundWallpaper /> */}
       <Elevator />
       <Header />
       <Flex flexDir={"column"}>
@@ -78,7 +78,11 @@ const MainPage = () => {
           >
             Доставка в каждом городе
           </Text>
-          <Image src={Logo} w={"400px"} border={"2px solid black"} />{" "}
+          <Flex border={"2px solid black"}>
+            {" "}
+            <Image src={Logo} w={"400px"} />{" "}
+          </Flex>
+
           <Flex
             pos={"absolute"}
             border={"1px solid white"}

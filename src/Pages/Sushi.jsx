@@ -10,7 +10,7 @@ import BottomProductPart from "../Components/BottomProductPart/BottomProductPart
 const Sushi = () => {
   return (
     <Flex flexDir={"column"}>
-      <BackgroundWallpaper />
+      {/* <BackgroundWallpaper /> */}
       <Elevator />
       <Header />
 

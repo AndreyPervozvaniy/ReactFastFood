@@ -10,7 +10,7 @@ import BottomProductPart from "../Components/BottomProductPart/BottomProductPart
 const Noodles = () => {
   return (
     <Flex flexDir={"column"}>
-      <BackgroundWallpaper />
+      {/* <BackgroundWallpaper /> */}
       <Elevator />
       <Header />
       <ProductStack title="ВКУСНЕЙШАЯ ЛАПША В ДНЕПРЕ" type="noodles" />
