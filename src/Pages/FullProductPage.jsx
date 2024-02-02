@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Flex, Text, Image, Button, Icon } from "@chakra-ui/react";
 import Header from "../Components/Header/Header";
 import Footer from "../Components/Footer/Footer";
-import BackgroundWallpaper from "../Components/MainPageContent/BackgroundWallpaper";
+
 import Elevator from "../Components/ElevatorComponent/Elevator";
 import { useParams } from "react-router-dom";
 import axios from "axios";
@@ -78,7 +78,6 @@ const FullProductPage = () => {
   }
   return (
     <Flex flexDir={"column"}>
-      {/* <BackgroundWallpaper /> */}
       <Elevator />
       <Header />
       <Flex mt="10px" flexDir={"row"} justifyContent={"center"}>

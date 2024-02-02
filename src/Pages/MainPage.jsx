@@ -20,14 +20,13 @@ import {
 import Logo from "../Assets/Image/Logo1.png";
 import AccordionTemplate from "../Components/MainPageContent/AccordionTemplate";
 import CarouselTemplate from "../Components/MainPageContent/Carousel";
-import BackgroundWallpaper from "../Components/MainPageContent/BackgroundWallpaper";
+
 import ReviewComponent from "../Components/Review/ReviewComponent";
 import Elevator from "../Components/ElevatorComponent/Elevator";
 import ProductStack from "../Components/ProductStack/ProductStack";
 const MainPage = () => {
   return (
     <>
-      {/* <BackgroundWallpaper /> */}
       <Elevator />
       <Header />
       <Flex flexDir={"column"}>
