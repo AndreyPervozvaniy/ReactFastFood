@@ -36,7 +36,7 @@ const Elevator = () => {
         h={50}
         borderRadius="full"
         color={"white"}
-        bgColor={"#ccc"}
+        backgroundColor={"#decb6a"}
         _hover={{
           opacity: "50%",
         }}

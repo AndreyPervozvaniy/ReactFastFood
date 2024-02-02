@@ -20,14 +20,15 @@ import {
 import Logo from "../Assets/Image/Logo1.png";
 import AccordionTemplate from "../Components/MainPageContent/AccordionTemplate";
 import CarouselTemplate from "../Components/MainPageContent/Carousel";
-
 import ReviewComponent from "../Components/Review/ReviewComponent";
 import Elevator from "../Components/ElevatorComponent/Elevator";
 import ProductStack from "../Components/ProductStack/ProductStack";
+import FloatingBtnContant from "../Components/FloatingBtnContact/FloatingBtnContact";
 const MainPage = () => {
   return (
     <>
       <Elevator />
+
       <Header />
       <Flex flexDir={"column"}>
         <CarouselTemplate />
@@ -263,7 +264,7 @@ const MainPage = () => {
           </Flex>
         </Flex>
       </Flex>
-
+      <FloatingBtnContant />
       <Footer />
     </>
   );
