@@ -28,9 +28,10 @@ const Footer = () => {
         </Flex>
         <Flex justify={"center"} alignItems={"center"}>
           <Flex justify={"space-between"} w={"10%"}>
-            <Link to={"https://t.me/AndreyPervozvaniy"} isExternal>
+            <Link to="https://t.me/AndreyPervozvaniy" target="_blank">
               <Icon as={FaTelegram} w={6} h={6} cursor={"pointer"} />
             </Link>
+
             <Link
               to={
                 "https://www.instagram.com/andreypervozvaniy?igsh=YndvcDNzOHhtd2E4&utm_source=qr"
@@ -49,7 +50,7 @@ const Footer = () => {
             </Link>
           </Flex>
         </Flex>
-        <Flex justify={"center"} mt={5}>
+        <Flex justify={"center"} mt={5} flexWrap={"wrap"}>
           <Text>© 2024 Все права защищены - burger-lord Днепр.</Text>
         </Flex>
       </Flex>
