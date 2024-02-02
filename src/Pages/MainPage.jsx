@@ -230,13 +230,9 @@ const MainPage = () => {
                     w={{ base: "100%", lg: "40%" }}
                     justify={"center"}
                     alignItems={"center"}
-                    borderTopRadius={{ base: "20px", lg: "0" }}
+                    overflow={"hidden"}
                   >
-                    <Image
-                      borderLeftRadius={"20px"}
-                      src={item.image}
-                      h={"300px"}
-                    />
+                    <Image borderRadius={"20px"} src={item.image} h={"300px"} />
                   </Flex>
 
                   <Flex

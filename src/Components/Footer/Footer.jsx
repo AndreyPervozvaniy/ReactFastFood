@@ -22,12 +22,12 @@ const Footer = () => {
             cursor={"pointer"}
             onClick={() => router("/")}
             src={Logo}
-            h={"100px"}
+            h={{ base: "70px", lg: "100px" }}
           />
           <Text> </Text>
         </Flex>
-        <Flex justify={"center"} alignItems={"center"}>
-          <Flex justify={"space-between"} w={"10%"}>
+        <Flex justify={"center"} alignItems={"center"} mt={5}>
+          <Flex justify={"space-between"} w={"30%"}>
             <Link to="https://t.me/AndreyPervozvaniy" target="_blank">
               <Icon as={FaTelegram} w={6} h={6} cursor={"pointer"} />
             </Link>
@@ -55,7 +55,7 @@ const Footer = () => {
           mt={5}
           textAlign={"center"}
           flexWrap={"wrap"}
-          p={4}
+          px={4}
         >
           <Text>© 2024 Все права защищены - burger-lord Днепр.</Text>
         </Flex>
