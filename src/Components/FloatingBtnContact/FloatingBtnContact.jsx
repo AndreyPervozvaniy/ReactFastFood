@@ -71,7 +71,7 @@ const FloatingBtnContant = () => {
               style={{ position: "absolute", top: "-150px", left: "5px" }}
             >
               <Link
-                href="https://www.instagram.com/andreypervozvaniy?igsh=YndvcDNzOHhtd2E4&utm_source=qr"
+                href="https://www.linkedin.com/in/%D0%B0%D0%BD%D0%B4%D1%80%D0%B5%D0%B9-%D0%B1%D0%B5%D0%BB%D0%BE%D0%BA%D1%83%D0%B4%D1%80%D1%8F-24343b168?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
                 isExternal
               >
                 <IconButton
