@@ -7,12 +7,13 @@ import ProductStack from "../Components/ProductStack/ProductStack";
 import ReviewComponent from "../Components/Review/ReviewComponent";
 import Elevator from "../Components/ElevatorComponent/Elevator";
 import BottomProductPart from "../Components/BottomProductPart/BottomProductPart";
+import FloatingBtnContant from "../Components/FloatingBtnContact/FloatingBtnContact";
 const Sushi = () => {
   return (
     <Flex flexDir={"column"}>
       <Elevator />
       <Header />
-
+      <FloatingBtnContant />
       <ProductStack title="ВКУСНЕЙШИЕ СУШИ В ДНЕПРЕ" type="sushi" />
       <ReviewComponent page="Rolls" />
       <BottomProductPart page="Sushi" />

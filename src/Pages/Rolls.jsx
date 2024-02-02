@@ -7,11 +7,13 @@ import ProductStack from "../Components/ProductStack/ProductStack";
 import ReviewComponent from "../Components/Review/ReviewComponent";
 import Elevator from "../Components/ElevatorComponent/Elevator";
 import BottomProductPart from "../Components/BottomProductPart/BottomProductPart";
+import FloatingBtnContant from "../Components/FloatingBtnContact/FloatingBtnContact";
 const Rolls = () => {
   return (
     <Flex flexDir={"column"}>
       <Header />
       <Elevator />
+      <FloatingBtnContant />
       <ProductStack title="ВКУСНЕЙШИЕ РОЛЛЫ В ДНЕПРЕ" type="rolls" />
       <ReviewComponent page="Rolls" />
       <BottomProductPart page="Rolls" />

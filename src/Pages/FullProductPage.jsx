@@ -12,6 +12,7 @@ import { useToast } from "@chakra-ui/react";
 import { addItems } from "../Redux/CartSlice";
 import { FaStar } from "react-icons/fa";
 import { Spinner } from "@chakra-ui/react";
+import FloatingBtnContant from "../Components/FloatingBtnContact/FloatingBtnContact";
 const FullProductPage = () => {
   const { id } = useParams();
   const toast = useToast();
@@ -80,10 +81,26 @@ const FullProductPage = () => {
     <Flex flexDir={"column"}>
       <Elevator />
       <Header />
-      <Flex mt="10px" flexDir={"row"} justifyContent={"center"}>
-        <Image src={product.imageURL} w={575} h={380} />
-        <Flex ml={5} flexDir={"column"} w={"50%"}>
-          <Text fontSize={"3xl"} fontWeight={"bold"}>
+      <FloatingBtnContant />
+      <Flex
+        mt="10px"
+        flexDir={{ base: "column", lg: "row" }}
+        justifyContent={"center"}
+        alignItems={{ base: "center", lg: "left" }}
+      >
+        <Image
+          src={product.imageURL}
+          w={{ base: "60%", lg: "575px" }}
+          h={{ base: "60%", lg: "380px" }}
+        />
+        <Flex
+          ml={5}
+          flexDir={"column"}
+          w={{ base: "80%", lg: "50%" }}
+          alignItems={{ base: "center", lg: "start" }}
+          textAlign={{ base: "center", lg: "start" }}
+        >
+          <Text fontSize={{ base: "xl", lg: "3xl" }} fontWeight={"bold"}>
             {product.name}
           </Text>{" "}
           <Flex>
@@ -97,6 +114,16 @@ const FullProductPage = () => {
               />
             ))}
           </Flex>
+          <Button
+            display={{ base: "inherit", lg: "none" }}
+            mt={10}
+            key={product.id}
+            backgroundColor={"#decb6a"}
+            onClick={() => addItemInCart(product)}
+            w={"150px"}
+          >
+            <Text fontWeight={"bold"}>ЗАКАЗАТЬ</Text>
+          </Button>
           <Text fontSize={" xl"} fontWeight={"bold"} mt={10}>
             {product.consist}
           </Text>{" "}
@@ -109,6 +136,7 @@ const FullProductPage = () => {
             <Text fontSize={"2xl"}>{product.weight}</Text>
           </Flex>
           <Button
+            display={{ base: "none", lg: "inherit" }}
             mt={10}
             key={product.id}
             backgroundColor={"#decb6a"}

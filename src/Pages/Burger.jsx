@@ -7,11 +7,13 @@ import ProductStack from "../Components/ProductStack/ProductStack";
 import ReviewComponent from "../Components/Review/ReviewComponent";
 import Elevator from "../Components/ElevatorComponent/Elevator";
 import BottomProductPart from "../Components/BottomProductPart/BottomProductPart";
+import FloatingBtnContant from "../Components/FloatingBtnContact/FloatingBtnContact";
 
 const Burger = () => {
   return (
     <Flex flexDir={"column"}>
       <Elevator />
+      <FloatingBtnContant />
       <Header />
       <ProductStack title="ВКУСНЕЙШИЕ БУРГЕРЫ В ДНЕПРЕ" type="burgers" />
       <ReviewComponent page="Burgers" />

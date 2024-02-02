@@ -17,8 +17,16 @@ const BottomProductPart = ({ page }) => {
       {bottomDescriptionEachPage
         .filter((item) => item.page === page)
         .map((item) => (
-          <Flex key={item.id} flexDir={"row"} justifyContent={"space-between"}>
-            <Flex flexDir="column" w={"70%"}>
+          <Flex
+            key={item.id}
+            flexDir={{ base: "column", lg: "row" }}
+            justifyContent={{ base: "center", lg: "space-between" }}
+          >
+            <Flex
+              flexDir="column"
+              w={"100%"}
+              textAlign={{ base: "center", lg: "left" }}
+            >
               <Text fontWeight={"bold"} fontSize={"4xl"}>
                 {item.title1}
               </Text>
@@ -33,10 +41,10 @@ const BottomProductPart = ({ page }) => {
               </Text>
             </Flex>
             <Flex
-              w={"400px"}
+              w={{ base: "100%", lg: "80%" }}
               h={"400px"}
               flexDir={"column"}
-              ml={2}
+              ml={{ base: "0", lg: "2" }}
               p={4}
               backgroundColor={"white"}
             >

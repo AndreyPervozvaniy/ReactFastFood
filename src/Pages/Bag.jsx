@@ -17,6 +17,7 @@ import { useNavigate } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
 import { DeliverInfo } from "../Utills/Utills";
 import Elevator from "../Components/ElevatorComponent/Elevator";
+import FloatingBtnContant from "../Components/FloatingBtnContact/FloatingBtnContact";
 
 const Bag = () => {
   const dispatch = useDispatch();
@@ -43,6 +44,7 @@ const Bag = () => {
     <Flex flexDir={"column"}>
       <Header />
       <Elevator />
+      <FloatingBtnContant />
       <Flex justifyContent={"space-around"}>
         <Flex flexDir={"column"} mt={"10px"}>
           <Text fontWeight={"bold"} fontSize={"3xl"} textAlign={"start"}>
