@@ -81,7 +81,6 @@ const ProductStack = ({ title, type }) => {
                       <Flex
                         key={item.id}
                         w={"600px"}
-                        border={"1px solid #ccc"}
                         borderRadius={"5px"}
                         p={4}
                         flexDir={"column"}
