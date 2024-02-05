@@ -47,6 +47,7 @@ const Bag = () => {
       <Elevator />
       <FloatingBtnContant />{" "}
       <Flex
+        mt={{ base: "48px", lg: "0px" }}
         flexDir={{ base: "column", lg: "row" }}
         justify={{ base: "center", lg: "space-around" }}
         textAlign={{ base: "center", lg: "start" }}

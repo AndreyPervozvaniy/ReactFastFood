@@ -86,27 +86,13 @@ const Header = () => {
               </Text>
             </Flex>
           </Flex>{" "}
-          <Flex
-            alignItems={"center"}
-            justify={{ base: "space-between", lg: "space-around" }}
-            w={{ base: "100%", lg: "inherit" }}
-            px={{ base: "5%", lg: "0px" }}
-          >
-            <IconButton
-              size="sm"
-              icon={<GiHamburgerMenu />}
-              aria-label="Open Menu"
-              display={{ base: "inherit", lg: "none" }}
-              onClick={isOpen ? onClose : onOpen}
-            />
-            <Image
-              src={Logo}
-              w={{ base: "150px", md: "200px", lg: "250px" }}
-              cursor={"pointer"}
-              onClick={() => router("/")}
-              mr={10}
-            />
-          </Flex>
+          <Image
+            src={Logo}
+            w={{ base: "150px", md: "200px", lg: "250px" }}
+            cursor={"pointer"}
+            onClick={() => router("/")}
+            mr={10}
+          />
           <Flex
             display={{ base: "none", lg: "flex" }}
             alignItems={"center"}
@@ -175,6 +161,36 @@ const Header = () => {
               </Flex>
             ))}
           </Flex>
+        </Flex>{" "}
+      </Flex>
+      <Flex
+        flexDir={"column"}
+        display={{ base: "inherit", lg: "none" }}
+        pos={"fixed"}
+        w={"100%"}
+        zIndex={3}
+      >
+        <Flex
+          backgroundColor={"white"}
+          alignItems={"center"}
+          justify={{ base: "space-between", lg: "space-around" }}
+          w={{ base: "100%", lg: "inherit" }}
+          px={{ base: "5%", lg: "0px" }}
+        >
+          <IconButton
+            size="sm"
+            icon={<GiHamburgerMenu />}
+            aria-label="Open Menu"
+            display={{ base: "inherit", lg: "none" }}
+            onClick={isOpen ? onClose : onOpen}
+          />
+          <Image
+            src={Logo}
+            w={{ base: "150px", md: "200px", lg: "250px" }}
+            cursor={"pointer"}
+            onClick={() => router("/")}
+            mr={10}
+          />
         </Flex>{" "}
         <Flex
           p={2}

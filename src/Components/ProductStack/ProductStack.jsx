@@ -58,7 +58,7 @@ const ProductStack = ({ title, type }) => {
   }, []);
 
   return (
-    <Flex flexDir={"column"}>
+    <Flex flexDir={"column"} mt={{ base: "48px", lg: "0px" }}>
       <Flex flexDir={"column"} justify={"center"} alignItems={"center"}>
         {" "}
         <Text p={5} fontWeight={"bold"} fontSize={"4xl"}>

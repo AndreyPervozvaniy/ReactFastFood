@@ -4,7 +4,7 @@ import { Skeleton, Stack } from "@chakra-ui/react";
 const SkeletonReview = () => {
   return (
     <Stack>
-      <Skeleton height="136px" w={"582px"} />
+      <Skeleton height="136px" w={{ base: "90%", lg: "582px" }} />
     </Stack>
   );
 };
