@@ -6,7 +6,8 @@ import { useToast } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
 import { clearCart } from "../../Redux/CartSlice";
 import { useDispatch } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { Spinner } from "@chakra-ui/react";
 const FormDeliver = () => {
   const {
     register,
@@ -21,15 +22,16 @@ const FormDeliver = () => {
   });
   const dispatch = useDispatch();
   const toast = useToast();
-
-  const { totalPrice, totalCount, cart } = useSelector(
-    (state) => state.CartSlice
-  );
+  const [isLoading, setIsLoading] = useState(false);
+  const { totalPrice, cart } = useSelector((state) => state.CartSlice);
   useEffect(() => {
     setValue("products", cart);
-  }, [cart, setValue]);
+    setValue("totalPrice", totalPrice);
+  }, [cart, totalPrice, setValue]);
+
   const onSubmit = async (data) => {
     try {
+      setIsLoading(true); // Устанавливаем состояние в true перед отправкой
       const response = await fetch(
         "https://65a93323219bfa371868c106.mockapi.io/Burger",
         {
@@ -62,6 +64,8 @@ const FormDeliver = () => {
     } catch (error) {
       console.error("Ошибка при отправке формы на сервер:", error);
       // Ваши действия в случае ошибки
+    } finally {
+      setIsLoading(false); // В любом случае устанавливаем состояние в false
     }
   };
 
@@ -97,8 +101,12 @@ const FormDeliver = () => {
             </div>
           )}
         />
-        <Button type="submit" mt={5}>
-          <Text>Подтвердить</Text>
+        <Button type="submit" mt={5} disabled={isLoading}>
+          {isLoading ? (
+            <Spinner color="white" size="md" />
+          ) : (
+            <Text>Подтвердить</Text>
+          )}
         </Button>
       </form>
     </Flex>
