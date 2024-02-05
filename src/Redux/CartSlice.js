@@ -4,6 +4,7 @@ const initialState = {
   totalPrice: 0,
   totalCount: 0,
   cart: [],
+  deliverSubmited: false,
 };
 const updateCountAndPrice = (state) => {
   state.totalCount = state.cart.reduce((sum, obj) => {
@@ -44,10 +45,21 @@ const CartSlice = createSlice({
       }
       updateCountAndPrice(state);
     },
+    sendDlvrToBack(state) {
+      state.cart = initialState.cart;
+      state.totalCount = initialState.totalCount;
+      state.totalPrice = initialState.totalPrice;
+      state.deliverSubmited = true;
+    },
   },
 });
 
-export const { addItems, removeItems, clearCart, decreaseCount } =
-  CartSlice.actions;
+export const {
+  sendDlvrToBack,
+  addItems,
+  removeItems,
+  clearCart,
+  decreaseCount,
+} = CartSlice.actions;
 
 export default CartSlice.reducer;
