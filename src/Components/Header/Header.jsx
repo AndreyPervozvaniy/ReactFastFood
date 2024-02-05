@@ -215,7 +215,12 @@ const Header = () => {
           <DrawerContent>
             <DrawerCloseButton />
             <DrawerHeader>Меню</DrawerHeader>
-            <DrawerBody bgColor={"white"} overflowY="auto" fontWeight={"bold"}>
+            <DrawerBody
+              bgColor={"white"}
+              overflowY="auto"
+              fontWeight={"bold"}
+              h={"100%"}
+            >
               <Flex
                 flexDir={"column"}
                 justifyContent={"start"}
