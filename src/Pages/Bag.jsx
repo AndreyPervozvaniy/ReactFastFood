@@ -23,7 +23,7 @@ import FormDeliver from "../Components/FormAuth/FormAuth";
 const Bag = () => {
   const dispatch = useDispatch();
   const router = useNavigate();
-  const { cart, totalCount, totalPrice, deliverSubmited } = useSelector(
+  const { cart, totalCount, totalPrice } = useSelector(
     (state) => state.CartSlice
   );
   const addItemInCart = (item) => {

@@ -4,7 +4,7 @@ import { Input, Text, Button, Flex } from "@chakra-ui/react";
 import { DeliverFormSchema } from "../../Utills/Schemas/DeliverySchema";
 import { useToast } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
-import { clearCart, sendDlvrToBack } from "../../Redux/CartSlice";
+import { clearCart } from "../../Redux/CartSlice";
 import { useDispatch } from "react-redux";
 
 const FormDeliver = () => {
