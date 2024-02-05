@@ -3,9 +3,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { Input, Text, Button, Flex } from "@chakra-ui/react";
 import { DeliverFormSchema } from "../../Utills/Schemas/DeliverySchema";
 import { useToast } from "@chakra-ui/react";
-
 import { useSelector } from "react-redux";
-import { sendDlvrToBack } from "../../Redux/CartSlice";
+import { clearCart, sendDlvrToBack } from "../../Redux/CartSlice";
 import { useDispatch } from "react-redux";
 
 const FormDeliver = () => {
@@ -13,17 +12,15 @@ const FormDeliver = () => {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm({
     mode: "onChange",
-    resetOptions: "",
     resolver: yupResolver(DeliverFormSchema),
   });
   const dispatch = useDispatch();
   const toast = useToast();
 
-  const { totalPrice, deliverSibmited, totalCount } = useSelector(
-    (state) => state.CartSlice
-  );
+  const { totalPrice, totalCount } = useSelector((state) => state.CartSlice);
 
   const onSubmit = (data) => {
     if (totalCount < 1) {
@@ -37,7 +34,7 @@ const FormDeliver = () => {
       });
     } else {
       console.log(data);
-      dispatch(sendDlvrToBack());
+      dispatch(clearCart());
       toast({
         position: "top",
         duration: 8000,
@@ -47,32 +44,29 @@ const FormDeliver = () => {
        Сумма: ${totalPrice} грн.`,
         status: "success",
       });
+      reset();
     }
   };
 
   return (
     <Flex flexDir={"column"} w={"100%"} p={5}>
-      {deliverSibmited ? (
-        <Text>Заказ принят. Спасибо!</Text>
-      ) : (
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <Text mt={5}>Имя*</Text>
-          <Input {...register("firstName")} />
-          <Text color={"red"}>{errors.firstName?.message}</Text>
-          <Text mt={5}>Фамилия*</Text>
-          <Input {...register("lastName")} />
-          <Text color={"red"}>{errors.lastName?.message}</Text>
-          <Text mt={5}>Телефон*</Text>
-          <Input {...register("phone")} />
-          <Text color={"red"}>{errors.phone?.message}</Text>
-          <Text mt={5}>Почта*</Text>
-          <Input {...register("email")} />
-          <Text color={"red"}>{errors.email?.message}</Text>
-          <Button type="submit" mt={5}>
-            <Text>Подтвердить</Text>
-          </Button>
-        </form>
-      )}
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <Text mt={5}>Имя*</Text>
+        <Input {...register("firstName")} />
+        <Text color={"red"}>{errors.firstName?.message}</Text>
+        <Text mt={5}>Фамилия*</Text>
+        <Input {...register("lastName")} />
+        <Text color={"red"}>{errors.lastName?.message}</Text>
+        <Text mt={5}>Телефон*</Text>
+        <Input {...register("phone")} />
+        <Text color={"red"}>{errors.phone?.message}</Text>
+        <Text mt={5}>Почта*</Text>
+        <Input {...register("email")} />
+        <Text color={"red"}>{errors.email?.message}</Text>
+        <Button type="submit" mt={5}>
+          <Text>Подтвердить</Text>
+        </Button>
+      </form>
     </Flex>
   );
 };
