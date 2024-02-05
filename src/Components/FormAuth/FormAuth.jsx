@@ -23,13 +23,27 @@ const FormDeliver = () => {
   const dispatch = useDispatch();
   const toast = useToast();
   const [isLoading, setIsLoading] = useState(false);
-  const { totalPrice, cart } = useSelector((state) => state.CartSlice);
+  const { totalPrice, cart, totalCount } = useSelector(
+    (state) => state.CartSlice
+  );
   useEffect(() => {
     setValue("products", cart);
     setValue("totalPrice", totalPrice);
   }, [cart, totalPrice, setValue]);
 
   const onSubmit = async (data) => {
+    if (totalCount < 1) {
+      toast({
+        position: "top",
+        duration: 8000,
+        isClosable: true,
+        title: "Корзина пуста!",
+        description: `Добавьте товар в корзину! 
+        Сумма: ${totalPrice} грн.`,
+        status: "error", // Заменено "erroe" на "error"
+      });
+      return; // Добавлено возвращение, чтобы не выполнять остальной код при пустой корзине
+    }
     try {
       setIsLoading(true); // Устанавливаем состояние в true перед отправкой
       const response = await fetch(

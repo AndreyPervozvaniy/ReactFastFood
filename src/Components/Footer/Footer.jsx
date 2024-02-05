@@ -11,6 +11,8 @@ const Footer = () => {
       backgroundColor={"white"}
       h={"200px"}
       bottom={"0"}
+      right={0}
+      left={0}
       mt={"20px"}
       borderTop={"1px solid #ccc"}
       justify={"center"}

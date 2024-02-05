@@ -7,6 +7,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { NavBarData } from "../../Utills/Utills";
 import { useSelector } from "react-redux";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { SlBag } from "react-icons/sl";
 import { useDisclosure } from "@chakra-ui/react";
 import {
   Drawer,
@@ -136,7 +137,6 @@ const Header = () => {
             </Flex>
           </Flex>
         </Flex>
-
         <Flex justify={"center"} display={{ base: "none", lg: "flex" }}>
           <Flex
             flexDir={"row"}
@@ -175,8 +175,25 @@ const Header = () => {
               </Flex>
             ))}
           </Flex>
+        </Flex>{" "}
+        <Flex
+          p={2}
+          backgroundColor={"#decb6a"}
+          display={{ base: "inherit", lg: "none" }}
+          justify={"space-between"}
+          alignItems={"center"}
+          onClick={() => router("/bag")}
+        >
+          <Text fontWeight={"bold"}>Итого : {totalPrice} Грн.</Text>
+          <Flex justify={"center"} alignItems={"center"}>
+            <Icon as={SlBag} w={8} h={8} />
+            <Text mt={2} pos={"absolute"}>
+              {totalCount}
+            </Text>
+          </Flex>
         </Flex>
       </Flex>
+
       <Drawer placement="left" onClose={onClose} isOpen={isOpen} size={"full"}>
         <DrawerOverlay>
           <DrawerContent>
@@ -218,6 +235,22 @@ const Header = () => {
                     </Text>
                   </Flex>
                 ))}
+              </Flex>{" "}
+              <Flex alignItems={"center"} mt={2} justify={"center"}>
+                <Icon as={IoMdTime} h={8} w={8} color={"black"} />
+                <Text ml={2} color="black" fontWeight={"bold"}>
+                  Мы работаем с 10-00 до 21-00
+                </Text>
+              </Flex>{" "}
+              <Flex
+                mt={2}
+                alignItems={"center"}
+                justify={"center"}
+                onClick={() => callPhoneNumber("7500")}
+                cursor={"pointer"}
+              >
+                <Icon as={IoMdCall} h={8} w={8} color={"black"} mx={5} />
+                <Text>7500 (Обратная связь)</Text>
               </Flex>
             </DrawerBody>
           </DrawerContent>

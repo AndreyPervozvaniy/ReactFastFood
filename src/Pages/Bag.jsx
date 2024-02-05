@@ -42,24 +42,21 @@ const Bag = () => {
   const freeDeliver = 400;
 
   return (
-    <Flex flexDir={"column"}>
+    <Flex flexDir={"column"} h={"100%"}>
       <Header />
       <Elevator />
       <FloatingBtnContant />{" "}
-      <Flex justifyContent={"space-around"}>
-        <Flex flexDir={"column"} mt={"10px"}>
-          <Text fontWeight={"bold"} fontSize={"3xl"} textAlign={"start"}>
-            Детали оплаты
-          </Text>
-
-          <Flex w={"500px"} h={"800px"}>
-            <FormDeliver />
-          </Flex>
-        </Flex>
-
-        <Flex mt={"10px"} flexDir={"column"} w={"50%"}>
-          <Flex flexDir={"row"} justifyContent={"space-between"}>
-            <Text fontWeight={"bold"} fontSize={"3xl"} textAlign={"start"}>
+      <Flex
+        flexDir={{ base: "column", lg: "row" }}
+        justify={{ base: "center", lg: "space-around" }}
+        textAlign={{ base: "center", lg: "start" }}
+      >
+        <Flex mt={"10px"} flexDir={"column"} w={{ base: "100%", lg: "50%" }}>
+          <Flex
+            flexDir={{ base: "column", lg: "row" }}
+            justifyContent={"space-between"}
+          >
+            <Text fontWeight={"bold"} fontSize={"3xl"}>
               Ваш заказ
             </Text>
             {totalCount >= 1 && (
@@ -89,7 +86,7 @@ const Bag = () => {
                 {cart.map((item) => (
                   <Flex key={item.id} flexDir={"column"} w="90%">
                     <Flex
-                      flexDir={"row"}
+                      flexDir={{ base: "column", lg: "row" }}
                       alignItems={"center"}
                       justifyContent={"space-between"}
                     >
@@ -217,17 +214,32 @@ const Bag = () => {
               </Flex>{" "}
             </Flex>
           )}
+        </Flex>
+        <Flex flexDir={"column"} mt={"10px"} w={{ base: "100%", lg: "30%" }}>
+          <Text fontWeight={"bold"} fontSize={"3xl"}>
+            Детали оплаты
+          </Text>
 
-          <Flex mt={"10px"} flexDir={"column"} p={5}>
-            <Text>Доставка в г. Днепр :</Text>
-            {DeliverInfo.map((item, index) => (
-              <Flex alignItems={"center"} mt={2} key={index}>
-                <Icon as={FaStar} color={"#c78500"} mx={2} />{" "}
-                <Text fontSize={"sm"}>{item.text}</Text>
-              </Flex>
-            ))}
+          <Flex>
+            <FormDeliver />
           </Flex>
         </Flex>
+      </Flex>
+      <Flex
+        justify={"center"}
+        alignItems="center"
+        minH={{ base: "none", lg: "40vh" }}
+        mt={"10px"}
+        flexDir={"column"}
+        p={5}
+      >
+        <Text>Доставка в г. Днепр :</Text>
+        {DeliverInfo.map((item, index) => (
+          <Flex alignItems={"center"} mt={2} key={index}>
+            <Icon as={FaStar} color={"#c78500"} mx={2} />{" "}
+            <Text fontSize={"sm"}>{item.text}</Text>
+          </Flex>
+        ))}
       </Flex>
       <Footer />
     </Flex>
