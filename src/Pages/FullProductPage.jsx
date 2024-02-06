@@ -83,7 +83,7 @@ const FullProductPage = () => {
       <Header />
       <FloatingBtnContant />
       <Flex
-        mt="10px"
+        mt={{ base: "100px", lg: "0px" }}
         flexDir={{ base: "column", lg: "row" }}
         justifyContent={"center"}
         alignItems={{ base: "center", lg: "left" }}
