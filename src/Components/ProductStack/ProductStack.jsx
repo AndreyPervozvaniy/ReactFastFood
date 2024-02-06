@@ -8,7 +8,7 @@ import { addItems } from "../../Redux/CartSlice";
 import { useToast } from "@chakra-ui/react";
 import { fetchData } from "../../Redux/DataSlice";
 import { useNavigate } from "react-router-dom";
-const ProductStack = ({ title, type }) => {
+const ProductStack = ({ title, type, customMT = "100px" }) => {
   const toast = useToast();
   const dispatch = useDispatch();
   const router = useNavigate();
@@ -58,7 +58,7 @@ const ProductStack = ({ title, type }) => {
   }, []);
 
   return (
-    <Flex flexDir={"column"} mt={{ base: "100px", lg: "0px" }}>
+    <Flex flexDir={"column"} mt={{ base: customMT, lg: "0px" }}>
       <Flex flexDir={"column"} justify={"center"} alignItems={"center"}>
         {" "}
         <Text p={5} fontWeight={"bold"} fontSize={"4xl"}>

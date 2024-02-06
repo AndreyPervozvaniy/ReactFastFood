@@ -32,17 +32,7 @@ const MainPage = () => {
       <Header />
       <Flex flexDir={"column"} mt={{ base: "95px", lg: "0px" }}>
         <CarouselTemplate />
-        <Flex
-          textAlign={"center"}
-          justify={"center"}
-          p={"5"}
-          flexDir={"column"}
-        >
-          <Text fontWeight={"bold"} fontSize={{ base: "2xl", lg: "4xl" }}>
-            Вкусные новинки
-          </Text>
-          <ProductStack type="sets" />
-        </Flex>{" "}
+        <ProductStack type="sets" title={"Вкусные новинки"} customMT="10px" />
         <Flex flexDir={"column"} justify={"center"} textAlign={"center"}>
           <Text
             p={5}
