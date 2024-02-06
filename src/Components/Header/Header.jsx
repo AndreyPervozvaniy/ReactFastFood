@@ -87,6 +87,7 @@ const Header = () => {
             </Flex>
           </Flex>{" "}
           <Image
+            display={{ base: "none", lg: "inherit" }}
             src={Logo}
             w={{ base: "150px", md: "200px", lg: "250px" }}
             cursor={"pointer"}
