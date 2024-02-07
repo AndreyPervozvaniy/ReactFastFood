@@ -10,7 +10,6 @@ const BottomProductPart = ({ page }) => {
   const router = useNavigate();
   useEffect(() => {
     fetchData();
-    console.log("reloaded");
   }, []);
   return (
     <Flex mt={10} p={10}>

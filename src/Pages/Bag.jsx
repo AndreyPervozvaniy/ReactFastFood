@@ -18,7 +18,7 @@ import { FaStar } from "react-icons/fa";
 import { DeliverInfo } from "../Utills/Utills";
 import Elevator from "../Components/ElevatorComponent/Elevator";
 import FloatingBtnContant from "../Components/FloatingBtnContact/FloatingBtnContact";
-import FormDeliver from "../Components/FormAuth/FormAuth";
+import FormDeliver from "../Components/FormDeliver/FormDeliver";
 
 const Bag = () => {
   const dispatch = useDispatch();
