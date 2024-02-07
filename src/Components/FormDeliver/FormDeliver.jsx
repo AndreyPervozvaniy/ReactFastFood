@@ -40,12 +40,12 @@ const FormDeliver = () => {
         title: "Корзина пуста!",
         description: `Добавьте товар в корзину! 
         Сумма: ${totalPrice} грн.`,
-        status: "error", // Заменено "erroe" на "error"
+        status: "error",
       });
-      return; // Добавлено возвращение, чтобы не выполнять остальной код при пустой корзине
+      return;
     }
     try {
-      setIsLoading(true); // Устанавливаем состояние в true перед отправкой
+      setIsLoading(true);
       const response = await fetch(
         "https://65a93323219bfa371868c106.mockapi.io/Burger",
         {
@@ -59,7 +59,7 @@ const FormDeliver = () => {
 
       if (response.ok) {
         console.log("Форма успешно отправлена на сервер");
-        // Ваши дополнительные действия по успешной отправке
+
         dispatch(clearCart());
         toast({
           position: "top",
@@ -73,13 +73,11 @@ const FormDeliver = () => {
         reset();
       } else {
         console.error("Ошибка при отправке формы на сервер");
-        // Ваши действия в случае ошибки
       }
     } catch (error) {
       console.error("Ошибка при отправке формы на сервер:", error);
-      // Ваши действия в случае ошибки
     } finally {
-      setIsLoading(false); // В любом случае устанавливаем состояние в false
+      setIsLoading(false);
     }
   };
 
@@ -101,18 +99,16 @@ const FormDeliver = () => {
         <Controller
           name="products"
           control={control}
-          defaultValue={[]} // Значение по умолчанию
+          defaultValue={[]}
           render={({ field }) => (
-            <div>
-              {/* Отображение данных о продуктах в корзине */}
+            <Flex display="none">
               {field.value.map((product, index) => (
-                <div key={index}>
-                  <p>{product.name}</p>
-                  <p>{product.cost}</p>
-                  {/* Добавьте другие поля, если необходимо */}
-                </div>
+                <Flex key={index}>
+                  <Text>{product.name}</Text>
+                  <Text>{product.cost}</Text>
+                </Flex>
               ))}
-            </div>
+            </Flex>
           )}
         />
         <Button type="submit" mt={5} disabled={isLoading}>
