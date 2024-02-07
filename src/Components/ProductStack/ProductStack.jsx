@@ -53,8 +53,7 @@ const ProductStack = ({ title, type, customMT = "100px" }) => {
   };
 
   useEffect(() => {
-    fetchsData();
-    console.log("reloaded"); // eslint-disable-next-line
+    fetchsData(); // eslint-disable-next-line
   }, []);
 
   return (
