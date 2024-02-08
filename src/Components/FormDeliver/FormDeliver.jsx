@@ -43,7 +43,7 @@ const FormDeliver = () => {
     } else {
       try {
         setIsLoading(true);
-        const response = await axios.post(
+        await axios.post(
           "https://65a93323219bfa371868c106.mockapi.io/Burger",
           data
         );

@@ -6,7 +6,7 @@ import SkeletonProduct from "../Skeleton/SkeletonProduct";
 import { useDispatch, useSelector } from "react-redux";
 import { addItems } from "../../Redux/CartSlice";
 import { useToast } from "@chakra-ui/react";
-import { fetchData, fetchDataFromAPI } from "../../Redux/DataSlice";
+import { fetchDataFromAPI } from "../../Redux/DataSlice";
 import { useNavigate } from "react-router-dom";
 const ProductStack = ({ title, type, customMT = "100px" }) => {
   const toast = useToast();
