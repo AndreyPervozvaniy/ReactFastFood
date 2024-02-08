@@ -1,19 +1,19 @@
 import { Flex, Text, Icon, Image } from "@chakra-ui/react";
 import React, { useEffect } from "react";
-import { bottomDescriptionEachPage } from "../../Utills/Utills";
+import { btmDescription } from "../../Utills/Utills";
 import { useNavigate } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
 import { useSelector } from "react-redux";
-import { fetchData } from "../../Redux/DataSlice";
+import { fetchDataFromAPI } from "../../Redux/DataSlice";
 const BottomProductPart = ({ page }) => {
   const { dataFromServer } = useSelector((state) => state.DataSlice);
   const router = useNavigate();
   useEffect(() => {
-    fetchData();
+    fetchDataFromAPI();
   }, []);
   return (
     <Flex mt={10} p={10}>
-      {bottomDescriptionEachPage
+      {btmDescription
         .filter((item) => item.page === page)
         .map((item) => (
           <Flex
@@ -74,7 +74,7 @@ const BottomProductPart = ({ page }) => {
                           <Icon
                             key={index}
                             as={FaStar}
-                            color={index < item.starCount ? "#c78500" : "gray"} // Используйте серый цвет для незакрашенных звезд
+                            color={index < item.starCount ? "#c78500" : "gray"}
                             h={3}
                             w={3}
                           />

@@ -1,5 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { Flex, Icon, Image, Text, IconButton } from "@chakra-ui/react";
+import {
+  Flex,
+  Icon,
+  Image,
+  Text,
+  IconButton,
+  useDisclosure,
+  Drawer,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+  DrawerHeader,
+  DrawerBody,
+} from "@chakra-ui/react";
 import Logo from "../../Assets/Image/Logo1.png";
 import { IoMdTime, IoMdCall } from "react-icons/io";
 import { CiShoppingCart } from "react-icons/ci";
@@ -8,15 +21,6 @@ import { NavBarData } from "../../Utills/Utills";
 import { useSelector } from "react-redux";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { SlBag } from "react-icons/sl";
-import { useDisclosure } from "@chakra-ui/react";
-import {
-  Drawer,
-  DrawerOverlay,
-  DrawerContent,
-  DrawerCloseButton,
-  DrawerHeader,
-  DrawerBody,
-} from "@chakra-ui/react";
 
 const Header = () => {
   const { totalPrice, totalCount } = useSelector((state) => state.CartSlice);
@@ -34,9 +38,7 @@ const Header = () => {
         setElevateBag(false);
       }
     };
-
     window.addEventListener("scroll", handleScroll);
-
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };

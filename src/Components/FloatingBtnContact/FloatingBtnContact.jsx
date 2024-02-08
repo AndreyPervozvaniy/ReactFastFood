@@ -3,13 +3,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Box, IconButton, Icon, Link, Flex } from "@chakra-ui/react";
 import { FaPhone } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
-import { FloatingBtnData } from "../../Utills/Utills";
+import { SocialLink } from "../../Utills/Utills";
 
 const FloatingBtnContant = () => {
   const [isOpen, setIsOpen] = useState(false);
-
   const toggleIcons = () => {
-    setIsOpen((prev) => !prev);
+    setIsOpen(!isOpen);
   };
 
   return (
@@ -28,11 +27,10 @@ const FloatingBtnContant = () => {
         backgroundColor="#decb6a"
         transition={{ duration: 0.2 }}
       />
-
       <Flex>
         <AnimatePresence>
           {isOpen &&
-            FloatingBtnData.map((item, index) => (
+            SocialLink.map((item, index) => (
               <motion.div
                 key={index}
                 initial={{ y: item.initial, opacity: 0 }}

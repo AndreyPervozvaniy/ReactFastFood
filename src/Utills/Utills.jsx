@@ -173,7 +173,7 @@ export const NavBarData = [
     router: "/pizza",
   },
 ];
-export const bottomDescriptionEachPage = [
+export const btmDescription = [
   {
     page: "Sushi",
     id: 1,
@@ -615,7 +615,7 @@ export const DeliverInfo = [
   },
 ];
 
-export const FloatingBtnData = [
+export const SocialLink = [
   {
     initial: 40,
     exit: 10,

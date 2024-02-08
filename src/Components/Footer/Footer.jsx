@@ -2,7 +2,7 @@ import { Flex, Icon, Image, Text, Link } from "@chakra-ui/react";
 import React from "react";
 import Logo from "../../Assets/Image/Logo1.png";
 import { useNavigate } from "react-router-dom";
-import { FloatingBtnData } from "../../Utills/Utills";
+import { SocialLink } from "../../Utills/Utills";
 
 const Footer = () => {
   const router = useNavigate();
@@ -30,7 +30,7 @@ const Footer = () => {
         </Flex>
         <Flex justify={"center"} alignItems={"center"} mt={5}>
           <Flex justify={"space-between"} w={"30%"}>
-            {FloatingBtnData.map((item, index) => (
+            {SocialLink.map((item, index) => (
               <Flex key={index}>
                 <Link href={item.href} isExternal>
                   <Icon as={item.icon} w={6} h={6} cursor={"pointer"} />

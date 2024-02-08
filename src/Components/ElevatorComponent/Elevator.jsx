@@ -2,30 +2,26 @@ import { Fade, Button, Icon } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { FaArrowUp } from "react-icons/fa";
 const Elevator = () => {
-  const [isVisibleTopButton, setIsVisibleTopButton] = useState(false);
+  const [showBtn, setShowBtn] = useState(false);
   useEffect(() => {
     let prevScrollY = window.scrollY;
-
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       if (currentScrollY > prevScrollY) {
-        setIsVisibleTopButton(true);
+        setShowBtn(true);
       } else {
-        setIsVisibleTopButton(false);
+        setShowBtn(false);
       }
-
       prevScrollY = currentScrollY;
     };
-
     window.addEventListener("scroll", handleScroll);
-
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   return (
-    <Fade in={isVisibleTopButton}>
+    <Fade in={showBtn}>
       <Button
         zIndex="12"
         position="fixed"

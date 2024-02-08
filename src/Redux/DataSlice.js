@@ -1,11 +1,14 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-export const fetchData = createAsyncThunk("data/fetchDataServer", async () => {
-  const { data } = await axios.get(
-    "https://65a93323219bfa371868c106.mockapi.io/Sushi"
-  );
-  return data;
-});
+export const fetchDataFromAPI = createAsyncThunk(
+  "data/fetchDataServer",
+  async () => {
+    const { data } = await axios.get(
+      "https://65a93323219bfa371868c106.mockapi.io/Sushi"
+    );
+    return data;
+  }
+);
 
 const initialState = {
   dataFromServer: [],
@@ -21,17 +24,17 @@ const DataSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchData.pending, (state) => {
+    builder.addCase(fetchDataFromAPI.pending, (state) => {
       console.log("Loading");
       state.status = "loading";
       state.dataFromServer = [];
     });
-    builder.addCase(fetchData.fulfilled, (state, action) => {
+    builder.addCase(fetchDataFromAPI.fulfilled, (state, action) => {
       console.log("loaded");
       state.status = "success";
       state.dataFromServer = action.payload;
     });
-    builder.addCase(fetchData.rejected, (state) => {
+    builder.addCase(fetchDataFromAPI.rejected, (state) => {
       console.log("ERROR");
       state.status = "error";
       state.dataFromServer = [];

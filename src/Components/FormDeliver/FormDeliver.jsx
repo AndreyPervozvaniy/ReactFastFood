@@ -1,13 +1,11 @@
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Input, Text, Button, Flex } from "@chakra-ui/react";
+import { Input, Text, Button, Flex, useToast, Spinner } from "@chakra-ui/react";
 import { DeliverFormSchema } from "../../Utills/Schemas/DeliverySchema";
-import { useToast } from "@chakra-ui/react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { clearCart } from "../../Redux/CartSlice";
-import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
-import { Spinner } from "@chakra-ui/react";
+import axios from "axios";
 const FormDeliver = () => {
   const {
     register,
@@ -30,7 +28,6 @@ const FormDeliver = () => {
     setValue("products", cart);
     setValue("totalPrice", totalPrice);
   }, [cart, totalPrice, setValue]);
-
   const onSubmit = async (data) => {
     if (totalCount < 1) {
       toast({
@@ -39,27 +36,18 @@ const FormDeliver = () => {
         isClosable: true,
         title: "Корзина пуста!",
         description: `Добавьте товар в корзину! 
-        Сумма: ${totalPrice} грн.`,
+          Сумма: ${totalPrice} грн.`,
         status: "error",
       });
       return;
-    }
-    try {
-      setIsLoading(true);
-      const response = await fetch(
-        "https://65a93323219bfa371868c106.mockapi.io/Burger",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-        }
-      );
-
-      if (response.ok) {
-        console.log("Форма успешно отправлена на сервер");
-
+    } else {
+      try {
+        setIsLoading(true);
+        const response = await axios.post(
+          "https://65a93323219bfa371868c106.mockapi.io/Burger",
+          data
+        );
+        console.log("Форма успешно отправлена!");
         dispatch(clearCart());
         toast({
           position: "top",
@@ -67,17 +55,22 @@ const FormDeliver = () => {
           isClosable: true,
           title: "Заказ принят!",
           description: `Мы свяжемся с Вами в течении 5 минут по номеру ${data.phone}! 
-            Сумма: ${totalPrice} грн.`,
+              Сумма: ${totalPrice} грн.`,
           status: "success",
         });
         reset();
-      } else {
-        console.error("Ошибка при отправке формы на сервер");
+      } catch (error) {
+        console.error("Ошибка при отправке формы на сервер:", error);
+        toast({
+          position: "top",
+          duration: 8000,
+          isClosable: true,
+          title: "Ошибка при отправке формы на сервер",
+          status: "error",
+        });
+      } finally {
+        setIsLoading(false);
       }
-    } catch (error) {
-      console.error("Ошибка при отправке формы на сервер:", error);
-    } finally {
-      setIsLoading(false);
     }
   };
 
