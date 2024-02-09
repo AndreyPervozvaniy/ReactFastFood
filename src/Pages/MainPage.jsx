@@ -24,6 +24,8 @@ import ReviewComponent from "../Components/Review/ReviewComponent";
 import Elevator from "../Components/ElevatorComponent/Elevator";
 import ProductStack from "../Components/ProductStack/ProductStack";
 import FloatingBtnContant from "../Components/FloatingBtnContact/FloatingBtnContact";
+import CustomText from "../Components/CustomElements/CustomText";
+import CustomFlex from "../Components/CustomElements/CustomFlex";
 const MainPage = () => {
   return (
     <>
@@ -56,18 +58,17 @@ const MainPage = () => {
         </Flex>
         <ReviewComponent page="Main" />
         <Flex justify={"center"} p={10}>
-          <Text
+          <CustomText
             pos={"absolute"}
             border={"2px solid white"}
             background={"white"}
             my={-4}
-            fontWeight={"bold"}
             borderRadius={"5px"}
             fontSize={{ base: "small", xl: "large" }}
             px={4}
           >
             Доставка в каждом городе
-          </Text>
+          </CustomText>
           <Flex border={"2px solid black"}>
             {" "}
             <Image src={Logo} w={"400px"} />{" "}
@@ -90,9 +91,9 @@ const MainPage = () => {
           flexDir={"column"}
           textAlign={"center"}
         >
-          <Text fontSize={"lg"} fontWeight={"bold"}>
+          <CustomText fontSize={"lg"}>
             Привносим ресторанное качество в еду с доставкой.
-          </Text>
+          </CustomText>
           <Container maxW={"7xl"} mt={10}>
             <Flex justify={"center"} flexWrap="wrap" gridGap="6">
               {BenefitData.map((item, index) => (
@@ -112,15 +113,13 @@ const MainPage = () => {
                     />
                   </Box>
 
-                  <Text fontWeight={"bold"} fontSize={"xl"} mt={2}>
+                  <CustomText fontSize={"xl"} mt={2}>
                     {item.title}
-                  </Text>
+                  </CustomText>
                   <Box w={"80px"} h={"5px"} backgroundColor={item.color} mt={2}>
                     {" "}
                   </Box>
-                  <Text fontWeight={"bold"} mt={2}>
-                    {item.mainText}
-                  </Text>
+                  <CustomText mt={2}>{item.mainText}</CustomText>
                 </Flex>
               ))}
             </Flex>
@@ -133,18 +132,17 @@ const MainPage = () => {
           alignItems={"center"}
           mt={10}
         >
-          <Text
+          <CustomText
             border={"2px solid black"}
             textAlign={"center"}
             w="70%"
-            fontWeight={"bold"}
             fontSize={"xl"}
             p={4}
           >
             Мы предлагаем широкий ассортимент азиатской и европейской кухни:
             роллы, супы, пицца и суши - доставка по Харькову всего нашего меню в
             считанные минуты!
-          </Text>
+          </CustomText>
           {AboutData.map((item, index) => (
             <Container maxW={"7xl"} key={index} padding={2}>
               <Stack
@@ -161,13 +159,10 @@ const MainPage = () => {
                 direction={{ base: "column", md: "column", lg: "row" }}
               >
                 <Stack flex={1} spacing={{ base: 5, md: 10 }}>
-                  <Text
-                    fontWeight={"bold"}
-                    fontSize={{ base: "xl", md: "2xl", lg: "3xl" }}
-                  >
+                  <CustomText fontSize={{ base: "xl", md: "2xl", lg: "3xl" }}>
                     {item.title}
-                  </Text>
-                  <Text fontWeight={"bold"}>{item.text}</Text>
+                  </CustomText>
+                  <CustomText>{item.text}</CustomText>
                 </Stack>
                 <Flex flex={1} w={"full"} flexDir={"column"}>
                   <Box
@@ -205,7 +200,7 @@ const MainPage = () => {
             Отличный выбор блюд японской, европейской и американской кухни с
             доставкой только в Burger Lord
           </Text>
-          <Flex flexDir={"column"} w={"100%"}>
+          <CustomFlex>
             {MenuData.map((item, index) => (
               <Flex
                 key={index}
@@ -229,15 +224,13 @@ const MainPage = () => {
                     <Image borderRadius={"20px"} src={item.image} h={"300px"} />
                   </Flex>
 
-                  <Flex
+                  <CustomFlex
                     flex={{ base: "0", md: "1", lg: "1" }}
                     h="300px"
                     backgroundColor={"#231f20"}
                     justify={"center"}
-                    flexDir={"column"}
                     borderRadius={"20px"}
                     textAlign={{ base: "center", lg: "start" }}
-                    w={"100%"}
                     p={2}
                   >
                     <Text mt={"10px"} color={"white"}>
@@ -247,11 +240,11 @@ const MainPage = () => {
                     <Text mt={"10px"} color={"white"}>
                       {item.text}
                     </Text>
-                  </Flex>
+                  </CustomFlex>
                 </Flex>
               </Flex>
             ))}
-          </Flex>
+          </CustomFlex>
         </Flex>
       </Flex>
       <FloatingBtnContant />

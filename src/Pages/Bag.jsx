@@ -19,6 +19,7 @@ import { DeliverInfo } from "../Utills/Utills";
 import Elevator from "../Components/ElevatorComponent/Elevator";
 import FloatingBtnContant from "../Components/FloatingBtnContact/FloatingBtnContact";
 import FormDeliver from "../Components/FormDeliver/FormDeliver";
+import CustomText from "../Components/CustomElements/CustomText";
 
 const Bag = () => {
   const dispatch = useDispatch();
@@ -57,9 +58,7 @@ const Bag = () => {
             flexDir={{ base: "column", lg: "row" }}
             justifyContent={"space-between"}
           >
-            <Text fontWeight={"bold"} fontSize={"3xl"}>
-              Ваш заказ
-            </Text>
+            <CustomText fontSize={"3xl"}>Ваш заказ</CustomText>
             {totalCount >= 1 && (
               <Button
                 variant={"outline"}
@@ -69,9 +68,7 @@ const Bag = () => {
                 }}
                 onClick={() => handleClearAllCart()}
               >
-                <Text fontWeight={"bold"} color={"red"}>
-                  Очистить корзину{" "}
-                </Text>
+                <CustomText color={"red"}>Очистить корзину </CustomText>
               </Button>
             )}
           </Flex>
@@ -174,25 +171,21 @@ const Bag = () => {
                 <Text mt={2}>Доставка :</Text>
                 {totalPrice < minimalOrder ? (
                   <Flex flexDir={"column"} textAlign={"center"}>
-                    <Text fontWeight={"bold"}>
-                      К сожалению, доставка невозможна
-                    </Text>{" "}
+                    <CustomText>К сожалению, доставка невозможна</CustomText>{" "}
                     <Text fontSize={"14px"}>
                       (минимальный заказ - 250 грн.)
                     </Text>{" "}
                   </Flex>
                 ) : totalPrice <= freeDeliver ? (
                   <Flex flexDir={"column"} textAlign={"center"}>
-                    <Text fontWeight={"bold"}>Доставка 50 грн</Text>{" "}
+                    <CustomText>Доставка 50 грн</CustomText>{" "}
                     <Text fontSize={"14px"}>
                       (бесплатная от 400 грн. остаток :{" "}
                       {freeDeliver - totalPrice} грн.)
                     </Text>{" "}
                   </Flex>
                 ) : (
-                  <Text fontWeight="bold" color="green">
-                    Бесплатно!
-                  </Text>
+                  <CustomText color="green">Бесплатно!</CustomText>
                 )}
               </Flex>{" "}
               <Flex
@@ -201,25 +194,19 @@ const Bag = () => {
                 justifyContent={"space-between"}
                 alignItems={"center"}
               >
-                <Text fontWeight={"bold"}>ОБЩАЯ СТОИМОСТЬ : </Text>
-                <Text
-                  fontWeight={"bold"}
-                  fontSize={"3xl"}
-                  textDecor={"underline"}
-                >
+                <CustomText>ОБЩАЯ СТОИМОСТЬ : </CustomText>
+                <CustomText fontSize={"3xl"} textDecor={"underline"}>
                   {totalPrice < minimalOrder
                     ? totalPrice
                     : totalPrice + (totalPrice < freeDeliver ? 50 : 0)}{" "}
                   грн.
-                </Text>
+                </CustomText>
               </Flex>{" "}
             </Flex>
           )}
         </Flex>
         <Flex flexDir={"column"} mt={"10px"} w={{ base: "100%", lg: "30%" }}>
-          <Text fontWeight={"bold"} fontSize={"3xl"}>
-            Детали оплаты
-          </Text>
+          <CustomText fontSize={"3xl"}>Детали оплаты</CustomText>
 
           <Flex>
             <FormDeliver />

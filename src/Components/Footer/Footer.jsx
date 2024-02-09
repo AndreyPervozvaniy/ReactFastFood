@@ -3,7 +3,7 @@ import React from "react";
 import Logo from "../../Assets/Image/Logo1.png";
 import { useNavigate } from "react-router-dom";
 import { SocialLink } from "../../Utills/Utills";
-
+import CustomFlex from "../CustomElements/CustomFlex";
 const Footer = () => {
   const router = useNavigate();
   return (
@@ -17,7 +17,7 @@ const Footer = () => {
       borderTop={"1px solid #ccc"}
       justify={"center"}
     >
-      <Flex w={"100%"} flexDir={"column"}>
+      <CustomFlex>
         <Flex justify={"space-between"} alignItems={"center"} w={"100%"}>
           <Text> </Text>{" "}
           <Image
@@ -48,7 +48,7 @@ const Footer = () => {
         >
           <Text>© 2024 Все права защищены - burger-lord Днепр.</Text>
         </Flex>
-      </Flex>
+      </CustomFlex>
     </Flex>
   );
 };

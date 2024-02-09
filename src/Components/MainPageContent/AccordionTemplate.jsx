@@ -9,6 +9,7 @@ import {
   Text,
   Accordion,
 } from "@chakra-ui/react";
+import CustomText from "../CustomElements/CustomText";
 const AccordionTemplate = () => {
   return (
     <Flex
@@ -17,9 +18,9 @@ const AccordionTemplate = () => {
       alignItems={"center"}
       p={5}
     >
-      <Text fontSize={"3xl"} fontWeight={"bold"} mb={10}>
+      <CustomText fontSize={"3xl"} mb={10}>
         Ответы на вопросы
-      </Text>
+      </CustomText>
       <Accordion w={"95%"}>
         <AccordionItem borderRadius={"5px"} backgroundColor={"white"}>
           <h2>

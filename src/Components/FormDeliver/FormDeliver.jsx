@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { clearCart } from "../../Redux/CartSlice";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import CustomFlex from "../CustomElements/CustomFlex";
 const FormDeliver = () => {
   const {
     register,
@@ -75,7 +76,7 @@ const FormDeliver = () => {
   };
 
   return (
-    <Flex flexDir={"column"} w={"100%"} p={5}>
+    <CustomFlex p={5}>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Text mt={5}>Имя*</Text>
         <Input {...register("firstName")} />
@@ -112,7 +113,7 @@ const FormDeliver = () => {
           )}
         </Button>
       </form>
-    </Flex>
+    </CustomFlex>
   );
 };
 export default FormDeliver;

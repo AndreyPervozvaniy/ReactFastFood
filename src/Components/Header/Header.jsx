@@ -21,6 +21,8 @@ import { NavBarData } from "../../Utills/Utills";
 import { useSelector } from "react-redux";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { SlBag } from "react-icons/sl";
+import CustomFlex from "../CustomElements/CustomFlex";
+import CustomText from "../CustomElements/CustomText";
 
 const Header = () => {
   const { totalPrice, totalCount } = useSelector((state) => state.CartSlice);
@@ -50,7 +52,7 @@ const Header = () => {
   };
   return (
     <Flex>
-      <Flex w={"100%"} background={"white"} flexDir={"column"}>
+      <CustomFlex background={"white"}>
         <Flex
           backgroundColor={"#decb6a"}
           h={"30px"}
@@ -68,9 +70,9 @@ const Header = () => {
           >
             <Flex alignItems={"center"}>
               <Icon as={IoMdTime} h={8} w={8} color={"black"} mx={5} />
-              <Text color="black" fontWeight={"bold"}>
+              <CustomText color="black">
                 Мы работаем с 10-00 до 21-00
-              </Text>
+              </CustomText>
             </Flex>
             <Flex
               alignItems={"center"}
@@ -138,7 +140,7 @@ const Header = () => {
             h={100}
           >
             {NavBarData.map((item, index) => (
-              <Flex
+              <CustomFlex
                 key={index}
                 borderBottom={
                   currentLocation.pathname === item.router
@@ -154,23 +156,19 @@ const Header = () => {
                 }}
                 h={"100%"}
                 overflow={"hidden"}
-                w={"100%"}
                 cursor={"pointer"}
-                flexDir={"column"}
               >
                 {" "}
                 <Icon as={item.icon} h={12} w={12} />
                 <Text fontWeight={"bold"}>{item.text}</Text>
-              </Flex>
+              </CustomFlex>
             ))}
           </Flex>
         </Flex>{" "}
-      </Flex>
-      <Flex
-        flexDir={"column"}
+      </CustomFlex>
+      <CustomFlex
         display={{ base: "inherit", lg: "none" }}
         pos={"fixed"}
-        w={"100%"}
         zIndex={3}
       >
         <Flex
@@ -211,7 +209,7 @@ const Header = () => {
             </Text>
           </Flex>
         </Flex>
-      </Flex>
+      </CustomFlex>
 
       <Drawer placement="left" onClose={onClose} isOpen={isOpen} size={"full"}>
         <DrawerOverlay>
@@ -224,12 +222,7 @@ const Header = () => {
               fontWeight={"bold"}
               h={"100%"}
             >
-              <Flex
-                flexDir={"column"}
-                justifyContent={"start"}
-                w={"100%"}
-                alignItems={"center"}
-              >
+              <CustomFlex justifyContent={"start"} alignItems={"center"}>
                 {NavBarData.map((item, index) => (
                   <Flex
                     mt={2}
@@ -254,17 +247,15 @@ const Header = () => {
                   >
                     {" "}
                     <Icon as={item.icon} h={8} w={8} />
-                    <Text ml={2} fontWeight={"bold"}>
-                      {item.text}
-                    </Text>
+                    <CustomText ml={2}>{item.text}</CustomText>
                   </Flex>
                 ))}
-              </Flex>{" "}
+              </CustomFlex>{" "}
               <Flex alignItems={"center"} mt={2} justify={"center"}>
                 <Icon as={IoMdTime} h={8} w={8} color={"black"} />
-                <Text ml={2} color="black" fontWeight={"bold"}>
+                <CustomText ml={2} color="black">
                   Мы работаем с 10-00 до 21-00
-                </Text>
+                </CustomText>
               </Flex>{" "}
               <Flex
                 mt={2}

@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Container, Icon, Flex, Text } from "@chakra-ui/react";
 import { FaRegSmileBeam, FaStar } from "react-icons/fa";
-import SkeletonReview from "../Skeleton/SkeletonReview";
+import SkeletonProduct from "../Skeleton/SkeletonProduct";
+import CustomText from "../CustomElements/CustomText";
 const ReviewComponent = (props) => {
   const [review, setReview] = useState([]);
   const [reviewLoading, setReviewLoading] = useState(true);
@@ -26,7 +27,11 @@ const ReviewComponent = (props) => {
         <Flex justify={"center"} flexWrap="wrap" gridGap={2}>
           {reviewLoading
             ? [...new Array(6)].map((_, index) => (
-                <SkeletonReview key={index} />
+                <SkeletonProduct
+                  h={"136px"}
+                  w={{ base: "90%", lg: "582px" }}
+                  key={index}
+                />
               ))
             : review
                 .filter((item) => item.page === props.page)
@@ -42,9 +47,9 @@ const ReviewComponent = (props) => {
                     <Icon as={FaRegSmileBeam} w={12} h={12} />
                     <Flex flexDir={"column"} textAlign={"start"} mx={2}>
                       {" "}
-                      <Text fontWeight={"bold"}>
+                      <CustomText>
                         {item.name} {item.data}
-                      </Text>
+                      </CustomText>
                       <Flex my={3} flexDir={"column"}>
                         <Text
                           color={"blue"}
@@ -67,7 +72,7 @@ const ReviewComponent = (props) => {
                           ))}
                         </Flex>
                       </Flex>
-                      <Text fontWeight={"bold"}>{item.comments}</Text>
+                      <CustomText>{item.comments}</CustomText>
                     </Flex>
                   </Flex>
                 ))}

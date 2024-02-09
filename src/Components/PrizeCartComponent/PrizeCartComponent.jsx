@@ -1,6 +1,7 @@
 import React from "react";
 import { Flex, Text } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
+import CustomText from "../CustomElements/CustomText";
 
 const PrizeCartComponent = () => {
   const pepsiPrize = 599;
@@ -15,30 +16,26 @@ const PrizeCartComponent = () => {
     >
       {totalPrice < pepsiPrize ? (
         <Flex backgroundColor={"#fdedeb"} flexDir={"column"} p={4}>
-          <Text fontWeight={"bold"}>
-            ДОБАВЬТЕ ЕЩЕ {pepsiPrize - totalPrice} ГРН
-          </Text>
+          <CustomText>ДОБАВЬТЕ ЕЩЕ {pepsiPrize - totalPrice} ГРН</CustomText>
           <Text>к заказу, чтобы получить Pepsi 1 л. в подарок ❤️</Text>
         </Flex>
       ) : totalPrice < rollPrize ? (
         <Flex backgroundColor={"#fdedeb"} flexDir={"column"} p={4}>
-          <Text fontWeight={"bold"}>Дарим Pepsi 1 л. к этой сумме заказа!</Text>
+          <CustomText>Дарим Pepsi 1 л. к этой сумме заказа!</CustomText>
           <Text>ДОБАВЬТЕ ЕЩЕ {rollPrize - totalPrice} ГРН</Text>
           <Text>чтобы улучшить подарок до ролла Микс лосось ❤️</Text>
         </Flex>
       ) : totalPrice < burgerPrize ? (
         <Flex backgroundColor={"#fdedeb"} flexDir={"column"} p={4}>
-          <Text fontWeight={"bold"}>
-            Дарим ролл Микс лосось к этой сумме заказа!
-          </Text>
+          <CustomText>Дарим ролл Микс лосось к этой сумме заказа!</CustomText>
           <Text>ДОБАВЬТЕ ЕЩЕ {burgerPrize - totalPrice} ГРН</Text>
           <Text>чтобы улучшить подарок до Суши бургер с лососем ❤️</Text>
         </Flex>
       ) : (
         <Flex backgroundColor={"#fdedeb"} flexDir={"column"} p={4}>
-          <Text fontWeight={"bold"}>
+          <CustomText>
             Дарим Суши бургер с лососем или ролл Микс лосось на выбор ❤️
-          </Text>
+          </CustomText>
         </Flex>
       )}
     </Flex>

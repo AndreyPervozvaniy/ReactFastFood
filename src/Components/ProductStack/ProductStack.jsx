@@ -8,6 +8,7 @@ import { addItems } from "../../Redux/CartSlice";
 import { useToast } from "@chakra-ui/react";
 import { fetchDataFromAPI } from "../../Redux/DataSlice";
 import { useNavigate } from "react-router-dom";
+import CustomText from "../CustomElements/CustomText";
 const ProductStack = ({ title, type, customMT = "100px" }) => {
   const toast = useToast();
   const dispatch = useDispatch();
@@ -59,10 +60,9 @@ const ProductStack = ({ title, type, customMT = "100px" }) => {
   return (
     <Flex flexDir={"column"} mt={{ base: customMT, lg: "0px" }}>
       <Flex flexDir={"column"} justify={"center"} alignItems={"center"}>
-        {" "}
-        <Text p={5} fontWeight={"bold"} fontSize={"4xl"}>
+        <CustomText p={5} fontSize={"4xl"}>
           {title}{" "}
-        </Text>{" "}
+        </CustomText>{" "}
         {status === "error" ? (
           <Flex>
             <Image src={networkError} />
@@ -72,7 +72,11 @@ const ProductStack = ({ title, type, customMT = "100px" }) => {
             <Flex justify={"center"} flexWrap="wrap" gridGap={2}>
               {status === "loading"
                 ? [...new Array(6)].map((_, index) => (
-                    <SkeletonProduct key={index} />
+                    <SkeletonProduct
+                      w={{ base: "364px", md: "600px", lg: "600px" }}
+                      h={{ base: "368px", md: "531px", lg: "531px" }}
+                      key={index}
+                    />
                   ))
                 : dataFromServer
                     .filter((item) => item.type === type)
@@ -95,9 +99,7 @@ const ProductStack = ({ title, type, customMT = "100px" }) => {
                           onClick={() => router(`/fullproduct/${item.id}`)}
                         >
                           {" "}
-                          <Text fontWeight={"bold"} fontSize={"2xl"}>
-                            {item.name}
-                          </Text>
+                          <CustomText fontSize={"2xl"}>{item.name}</CustomText>
                           <Flex>
                             {[...Array(5)].map((_, index) => (
                               <Icon
@@ -123,9 +125,8 @@ const ProductStack = ({ title, type, customMT = "100px" }) => {
                             pos={"relative"}
                           >
                             <Image opacity={"20%"} src={item.imageURL} />
-                            <Text
+                            <CustomText
                               pos={"absolute"}
-                              fontWeight={"bold"}
                               flexWrap={"wrap"}
                               fontSize={{ base: "sm", lg: "xl" }}
                               maxWidth="100%"
@@ -133,7 +134,7 @@ const ProductStack = ({ title, type, customMT = "100px" }) => {
                               textOverflow="ellipsis"
                             >
                               {item.consist}
-                            </Text>
+                            </CustomText>
                           </Flex>
                         ) : (
                           <Flex
@@ -153,9 +154,9 @@ const ProductStack = ({ title, type, customMT = "100px" }) => {
                         >
                           <Flex>
                             {" "}
-                            <Text fontWeight={"bold"} fontSize={"2xl"}>
+                            <CustomText fontSize={"2xl"}>
                               {item.cost}
-                            </Text>
+                            </CustomText>
                             <Flex
                               h={"30px"}
                               border={"1px solid black"}
@@ -169,7 +170,7 @@ const ProductStack = ({ title, type, customMT = "100px" }) => {
                             backgroundColor={"#decb6a"}
                             onClick={() => addItemInCart(item)}
                           >
-                            <Text fontWeight={"bold"}>ЗАКАЗАТЬ</Text>
+                            <CustomText>ЗАКАЗАТЬ</CustomText>
                           </Button>
                         </Flex>
                       </Flex>

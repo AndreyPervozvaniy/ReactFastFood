@@ -1,10 +1,12 @@
-import { Flex, Text, Icon, Image } from "@chakra-ui/react";
+import { Flex, Icon, Image } from "@chakra-ui/react";
 import React, { useEffect } from "react";
 import { btmDescription } from "../../Utills/Utills";
 import { useNavigate } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { fetchDataFromAPI } from "../../Redux/DataSlice";
+import CustomText from "../CustomElements/CustomText";
+import CustomFlex from "../CustomElements/CustomFlex";
 const BottomProductPart = ({ page }) => {
   const { dataFromServer } = useSelector((state) => state.DataSlice);
   const router = useNavigate();
@@ -21,24 +23,18 @@ const BottomProductPart = ({ page }) => {
             flexDir={{ base: "column", lg: "row" }}
             justifyContent={{ base: "center", lg: "space-between" }}
           >
-            <Flex
-              flexDir="column"
-              w={"100%"}
-              textAlign={{ base: "center", lg: "left" }}
-            >
-              <Text fontWeight={"bold"} fontSize={"4xl"}>
-                {item.title1}
-              </Text>
-              <Text mt={5} fontWeight={"bold"} fontSize={"xl"}>
+            <CustomFlex textAlign={{ base: "center", lg: "left" }}>
+              <CustomText fontSize={"4xl"}>{item.title1}</CustomText>
+              <CustomText mt={5} fontSize={"xl"}>
                 {item.text1}
-              </Text>{" "}
-              <Text mt={10} fontWeight={"bold"} fontSize={"4xl"}>
+              </CustomText>{" "}
+              <CustomText mt={10} fontSize={"4xl"}>
                 {item.title2}
-              </Text>
-              <Text mt={5} fontWeight={"bold"} fontSize={"xl"}>
+              </CustomText>
+              <CustomText mt={5} fontSize={"xl"}>
                 {item.text2}
-              </Text>
-            </Flex>
+              </CustomText>
+            </CustomFlex>
             <Flex
               w={{ base: "100%", lg: "80%" }}
               h={"400px"}
@@ -47,9 +43,7 @@ const BottomProductPart = ({ page }) => {
               p={4}
               backgroundColor={"white"}
             >
-              <Text fontWeight={"bold"} fontSize={"3xl"}>
-                Хиты продаж
-              </Text>
+              <CustomText fontSize={"3xl"}>Хиты продаж</CustomText>
               <Flex border={"1px solid blue"} w={"50px"}>
                 {" "}
               </Flex>
@@ -68,7 +62,7 @@ const BottomProductPart = ({ page }) => {
                     cursor={"pointer"}
                   >
                     <Flex flexDir={"column"}>
-                      <Text fontWeight={"bold"}>{item.name}</Text>{" "}
+                      <CustomText>{item.name}</CustomText>
                       <Flex>
                         {[...Array(5)].map((_, index) => (
                           <Icon
@@ -80,7 +74,7 @@ const BottomProductPart = ({ page }) => {
                           />
                         ))}
                       </Flex>{" "}
-                      <Text fontWeight={"bold"}>{item.cost} грн.</Text>{" "}
+                      <CustomText>{item.cost} грн.</CustomText>{" "}
                     </Flex>
                     <Image src={item.imageURL} w={"150px"} h={"100px"} />
                   </Flex>

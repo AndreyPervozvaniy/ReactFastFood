@@ -13,6 +13,7 @@ import { addItems } from "../Redux/CartSlice";
 import { FaStar } from "react-icons/fa";
 import { Spinner } from "@chakra-ui/react";
 import FloatingBtnContant from "../Components/FloatingBtnContact/FloatingBtnContact";
+import CustomText from "../Components/CustomElements/CustomText";
 const FullProductPage = () => {
   const { id } = useParams();
   const toast = useToast();
@@ -100,9 +101,9 @@ const FullProductPage = () => {
           alignItems={{ base: "center", lg: "start" }}
           textAlign={{ base: "center", lg: "start" }}
         >
-          <Text fontSize={{ base: "xl", lg: "3xl" }} fontWeight={"bold"}>
+          <CustomText fontSize={{ base: "xl", lg: "3xl" }}>
             {product.name}
-          </Text>{" "}
+          </CustomText>{" "}
           <Flex>
             {[...Array(5)].map((_, index) => (
               <Icon
@@ -122,16 +123,14 @@ const FullProductPage = () => {
             onClick={() => addItemInCart(product)}
             w={"150px"}
           >
-            <Text fontWeight={"bold"}>ЗАКАЗАТЬ</Text>
+            <CustomText>ЗАКАЗАТЬ</CustomText>
           </Button>
-          <Text fontSize={" xl"} fontWeight={"bold"} mt={10}>
+          <CustomText fontSize={" xl"} mt={10}>
             {product.consist}
-          </Text>{" "}
+          </CustomText>{" "}
           <Flex mt={10}>
             {" "}
-            <Text fontWeight={"bold"} fontSize={"2xl"}>
-              {product.cost}
-            </Text>
+            <CustomText fontSize={"2xl"}>{product.cost}</CustomText>
             <Flex h={"30px"} border={"1px solid black"} mx={2}></Flex>
             <Text fontSize={"2xl"}>{product.weight}</Text>
           </Flex>
@@ -143,7 +142,7 @@ const FullProductPage = () => {
             onClick={() => addItemInCart(product)}
             w={"150px"}
           >
-            <Text fontWeight={"bold"}>ЗАКАЗАТЬ</Text>
+            <CustomText>ЗАКАЗАТЬ</CustomText>
           </Button>
         </Flex>
       </Flex>
