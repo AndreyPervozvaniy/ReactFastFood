@@ -1,5 +1,5 @@
 import { Text } from "@chakra-ui/react";
-import React, { Children } from "react";
+import React from "react";
 
 const CustomText = ({ children, ...props }) => {
   return (

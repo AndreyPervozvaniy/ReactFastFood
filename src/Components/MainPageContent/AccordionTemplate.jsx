@@ -6,7 +6,6 @@ import {
   AccordionIcon,
   Box,
   Flex,
-  Text,
   Accordion,
 } from "@chakra-ui/react";
 import CustomText from "../CustomElements/CustomText";
