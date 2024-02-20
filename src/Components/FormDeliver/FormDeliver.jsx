@@ -26,7 +26,13 @@ const FormDeliver = () => {
     (state) => state.CartSlice
   );
   useEffect(() => {
-    setValue("products", cart);
+    const formattedProducts = cart.map((product) => ({
+      name: product.name,
+      cost: product.cost,
+      count: product.count,
+    }));
+
+    setValue("products", formattedProducts);
     setValue("totalPrice", totalPrice);
   }, [cart, totalPrice, setValue]);
   const onSubmit = async (data) => {
